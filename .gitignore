@@ -57,6 +57,7 @@ models/*.pickle
 *.key
 deployment-package.zip
 package/
+NOTES_SESSION.md
 
 # Logs
 *.log

@@ -1,0 +1,10 @@
+{
+  "version": "full_optimized",
+  "num_users": 160377,
+  "num_articles": 37891,
+  "num_interactions": 2526781,
+  "matrix_sparsity": 99.95841952462717,
+  "processed_date": "2025-12-09 12:35:40",
+  "num_files": 385,
+  "elapsed_seconds": 14.981551
+}

@@ -1,0 +1,72 @@
+Livrables et soutenance
+
+Réalisez une application de recommandation de contenu
+
+CONTENU
+- Mission
+- Livrables et soutenance
+- Évaluation
+
+SUPPORTS PÉDAGOGIQUES
+- Compan... Nouveau
+- Ressources
+
+================================================================================
+
+Livrables
+
+1. Une application simple (Flask, Streamlit), complétée avec le système de recommandation en serverless qui recevra en entrée un identifiant utilisateur et retournera les recommandations d'articles associées (par exemple le top 5).
+   - Ce livrable permettra de démontrer les fonctionnalités de l'application à Samia et à de futurs utilisateurs.
+
+2. Les scripts développés, stockés dans un système de gestion de version (Git en local avec push sur Github) permettant le déploiement de l'application de bout-en-bout.
+   - Ce livrable vous servira à présenter le caractère "industrialisable" de votre travail.
+
+3. Un support de présentation (PowerPoint ou équivalent, sauvegardé au format pdf, 15 à 25 slides), contenant une brève description fonctionnelle de l'application, une présentation des différents modèles analysés et de leurs avantages et inconvénients, un schéma de l'architecture retenue, une présentation du système de recommandation utilisé et un schéma de l'architecture cible permettant de prendre en compte la création de nouveaux utilisateurs et de nouveaux articles.
+   - Ce livrable vous permettra de présenter votre travail à Samia.
+
+--------------------------------------------------------------------------------
+
+Déposez sur la plateforme, dans un dossier zip nommé "Titre_du_projet_nom_prénom", votre livrable nommé comme suit : Nom_Prénom_n° du livrable_nom du livrable_date de démarrage du projet. Cela donnera :
+
+- Nom_Prénom_1_application_mmaaaa
+- Nom_Prénom_2_scripts_mmaaaa
+- Nom_Prénom_3_presentation_mmaaaa
+
+Par exemple, votre premier livrable peut être nommé comme suit :
+Dupont_Jean_1_application_012024.
+
+================================================================================
+
+Soutenance
+
+Pendant la soutenance, l'évaluateur jouera le rôle de Samia, la cofondatrice de My Content. Vous lui présenterez l'ensemble de votre travail.
+
+- Présentation (20 minutes)
+  - des différentes approches de modélisation testées (10 minutes),
+  - des fonctionnalités du système de recommandation dans l'application (6 minutes),
+  - de l'architecture technique cible retenue (2 minutes),
+  - d'une démonstration de l'application (2 minutes).
+
+- Discussion (5 minutes)
+  - L'évaluateur vous challengera sur vos choix.
+
+- Débriefing (5 minutes)
+  - À la fin de la soutenance, vous pourrez débriefer ensemble.
+
+================================================================================
+
+Gestion consommation Azure
+
+ATTENTION : Veillez à couper les services Azure quand vous avez fini de les utiliser, sous peine d'être débité. OpenClassrooms ne pourra être tenu responsable de l'utilisation des comptes Azure personnels des étudiants.
+
+Comment utiliser les services gratuits Azure pour ce projet ?
+
+- Il est conseillé de créer votre Azure Function directement sur le portail Azure, et de choisir le "plan type" égal à "Consomption(serverless)", afin d'utiliser l'option gratuite de Service Plan
+
+- Vous pouvez vérifier quotidiennement la (non) consommation de vos services Azure sur le "Cost Management" accessible via la barre de recherche du portail Azure
+
+- Voici une FAQ plus complète, créée par un mentor OpenClassrooms sur ce sujet.
+
+================================================================================
+
+Avez-vous une suggestion pour nous ?

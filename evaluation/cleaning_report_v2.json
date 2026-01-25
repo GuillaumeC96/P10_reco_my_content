@@ -1,0 +1,24 @@
+{
+  "total_clicks": 2988181,
+  "valid_interactions": 1941746,
+  "cleaning_stats": {
+    "session_changes": 2652,
+    "session_changes_pct": 0.1365781106282696,
+    "time_capped": 1937806,
+    "time_capped_pct": 99.79708983564277,
+    "normal_time": 1288,
+    "normal_time_pct": 0.06633205372896352
+  },
+  "unique_user_article_pairs": 1922443,
+  "time_stats": {
+    "mean_seconds": 62.724031196848784,
+    "median_seconds": 59.7,
+    "mean_minutes": 1.0454005199474798,
+    "median_minutes": 0.995,
+    "total_hours": 33784.59191666668
+  },
+  "files": {
+    "interactions": "/home/ser/Bureau/P10_reco_new/models/interactions_cleaned_v2.csv",
+    "stats": "/home/ser/Bureau/P10_reco_new/models/interaction_stats_cleaned_v2.csv"
+  }
+}

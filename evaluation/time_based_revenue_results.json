@@ -1,0 +1,100 @@
+{
+  "metric": "time_based_popup_revenue",
+  "cpm_popup": 6.0,
+  "quantiles": {
+    "N1_Q25": 1.0,
+    "N2_Q50": 3.553275,
+    "N3_Q75": 15.75,
+    "N4_Q90": 38.37683500000001
+  },
+  "baseline_scenario": {
+    "N1_Q25": {
+      "interval_minutes": 1.0,
+      "avg_session_time_minutes": 16.44638179811725,
+      "avg_popups_per_session": 16.44638179811725,
+      "avg_revenue_per_session": 0.09867829078870352,
+      "total_revenue": 9867.829078870353
+    },
+    "N2_Q50": {
+      "interval_minutes": 3.553275,
+      "avg_session_time_minutes": 16.44638179811725,
+      "avg_popups_per_session": 4.62851363829629,
+      "avg_revenue_per_session": 0.027771081829777743,
+      "total_revenue": 2777.108182977774
+    },
+    "N3_Q75": {
+      "interval_minutes": 15.75,
+      "avg_session_time_minutes": 16.44638179811725,
+      "avg_popups_per_session": 1.0442147173407779,
+      "avg_revenue_per_session": 0.006265288304044667,
+      "total_revenue": 626.5288304044667
+    },
+    "N4_Q90": {
+      "interval_minutes": 38.37683500000001,
+      "avg_session_time_minutes": 16.44638179811725,
+      "avg_popups_per_session": 0.4285497175084201,
+      "avg_revenue_per_session": 0.0025712983050505205,
+      "total_revenue": 257.12983050505204
+    }
+  },
+  "recommendation_scenario": {
+    "N1_Q25": {
+      "interval_minutes": 1.0,
+      "avg_session_time_minutes": 30.096878690554572,
+      "avg_popups_per_session": 30.096878690554572,
+      "avg_revenue_per_session": 0.18058127214332742,
+      "total_revenue": 18058.12721433274
+    },
+    "N2_Q50": {
+      "interval_minutes": 3.553275,
+      "avg_session_time_minutes": 30.096878690554572,
+      "avg_popups_per_session": 8.47017995808221,
+      "avg_revenue_per_session": 0.05082107974849326,
+      "total_revenue": 5082.107974849326
+    },
+    "N3_Q75": {
+      "interval_minutes": 15.75,
+      "avg_session_time_minutes": 30.096878690554572,
+      "avg_popups_per_session": 1.9109129327336236,
+      "avg_revenue_per_session": 0.011465477596401742,
+      "total_revenue": 1146.5477596401743
+    },
+    "N4_Q90": {
+      "interval_minutes": 38.37683500000001,
+      "avg_session_time_minutes": 30.096878690554572,
+      "avg_popups_per_session": 0.7842459830404088,
+      "avg_revenue_per_session": 0.004705475898242452,
+      "total_revenue": 470.5475898242452
+    }
+  },
+  "comparison": {
+    "N1_Q25": {
+      "interval_minutes": 1.0,
+      "baseline_revenue": 9867.829078870353,
+      "reco_revenue": 18058.12721433274,
+      "gain_revenue": 8190.298135462388,
+      "gain_pct": 82.99999999999996
+    },
+    "N2_Q50": {
+      "interval_minutes": 3.553275,
+      "baseline_revenue": 2777.108182977774,
+      "reco_revenue": 5082.107974849326,
+      "gain_revenue": 2304.9997918715517,
+      "gain_pct": 82.99999999999997
+    },
+    "N3_Q75": {
+      "interval_minutes": 15.75,
+      "baseline_revenue": 626.5288304044667,
+      "reco_revenue": 1146.5477596401743,
+      "gain_revenue": 520.0189292357076,
+      "gain_pct": 83.00000000000003
+    },
+    "N4_Q90": {
+      "interval_minutes": 38.37683500000001,
+      "baseline_revenue": 257.12983050505204,
+      "reco_revenue": 470.5475898242452,
+      "gain_revenue": 213.41775931919318,
+      "gain_pct": 83.0
+    }
+  }
+}

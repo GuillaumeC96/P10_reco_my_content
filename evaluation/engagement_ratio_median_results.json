@@ -1,0 +1,29 @@
+{
+  "metric": "engagement_ratio_median",
+  "definition": "Bas\u00e9 sur la M\u00c9DIANE (utilisateur typique)",
+  "num_users": 322897,
+  "popup_interval_minutes": 3.55,
+  "cpm": 6.0,
+  "baseline": {
+    "median_ratio_pct": 0.06944444444444445,
+    "median_time_minutes": 3.553275,
+    "median_days_elapsed": 2.4408468865740742,
+    "pubs_per_user": 1.0009225352112676,
+    "revenue_per_user": 0.006005535211267606,
+    "revenue_total": 1939.1693031126763
+  },
+  "with_recommendation": {
+    "median_ratio_pct": 0.12708333333333335,
+    "median_time_minutes": 6.502493250000001,
+    "median_days_elapsed": 2.4408468865740742,
+    "pubs_per_user": 1.83168823943662,
+    "revenue_per_user": 0.01099012943661972,
+    "revenue_total": 3548.679824696198
+  },
+  "gains": {
+    "ratio_points": 0.057638888888888906,
+    "time_minutes": 2.9492182500000004,
+    "revenue_euros": 1609.5105215835217,
+    "revenue_pct": 83.00000000000001
+  }
+}

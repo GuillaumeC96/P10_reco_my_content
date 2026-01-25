@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-01-14T12:33:19.111963",
+  "data_source": "interaction_stats_cleaned.csv",
+  "num_users": 322897,
+  "num_articles": 35519,
+  "num_interactions": 1922443,
+  "matrix_shape": [
+    322897,
+    35519
+  ],
+  "matrix_density": 0.01676211175033846,
+  "weight_stats": {
+    "mean": 0.025115109775795987,
+    "median": 0.024400446179587285,
+    "std": 0.0050474203946185335
+  },
+  "time_stats": {
+    "mean_seconds": 126.66202701458501,
+    "median_seconds": 119.4,
+    "mean_minutes": 2.1110337835764166,
+    "median_minutes": 1.99
+  },
+  "files": {
+    "user_profiles": "/home/ser/Bureau/P10_reco_new/models/user_profiles_cleaned.json",
+    "id_mappings": "/home/ser/Bureau/P10_reco_new/models/id_mappings_cleaned.json",
+    "user_item_matrix": "/home/ser/Bureau/P10_reco_new/models/user_item_matrix_cleaned.npz",
+    "item_similarity": "/home/ser/Bureau/P10_reco_new/models/item_similarity_cleaned.npz"
+  }
+}

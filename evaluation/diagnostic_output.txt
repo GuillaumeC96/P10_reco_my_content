@@ -1,0 +1,82 @@
+Traceback (most recent call last):
+  File "/home/ser/Bureau/P10_reco_new/evaluation/diagnostic_data_exploration.py", line 181, in <module>
+    recommendations = engine.get_recommendations(
+AttributeError: 'RecommendationEngine' object has no attribute 'get_recommendations'
+================================================================================
+DIAGNOSTIC - EXPLORATION DE DONNÉES
+================================================================================
+
+[1/6] Chargement des données...
+  ✓ 364,047 articles chargés
+  ✓ 322,897 profils utilisateurs
+  ✓ 2,950,710 stats d'interaction
+
+[2/6] Analyse des âges des articles...
+  📅 Date de référence (article le plus récent): 2018-03-13
+
+  Distribution des âges des articles:
+    Min: 0 jours
+    Max: 4185 jours
+    Moyenne: 542.0 jours
+    Médiane: 364.0 jours
+
+  Quantiles:
+    10%: 57.0 jours
+    25%: 127.0 jours
+    50%: 364.0 jours
+    75%: 879.0 jours
+    90%: 1337.0 jours
+    95%: 1548.0 jours
+    99%: 1750.0 jours
+
+  Articles par tranche d'âge:
+    0-7 jours (semaine) :      1 ( 0.00%)
+    8-14 jours (2 semaines):  2,401 ( 0.66%)
+    15-30 jours (mois)  : 11,939 ( 3.28%)
+    31-60 jours         : 24,495 ( 6.73%)
+    61-90 jours         : 22,406 ( 6.15%)
+    91-180 jours        : 67,495 (18.54%)
+    181-365 jours       : 53,592 (14.72%)
+    >365 jours          : 181,718 (49.92%)
+
+  🔍 CRITIQUE: Articles ≤ 60 jours: 38,836 / 364,047 (10.67%)
+
+[3/6] Analyse du validation set...
+  ✓ Split créé: 85,401 users (80% train / 20% test)
+  ✓ Total train: 1,588,394 interactions
+  ✓ Total test: 439,379 interactions
+
+  Analyse de 5 utilisateurs échantillon:
+    User 1:
+      Train: 9 articles | Test: 3 articles
+      Test ≤60j: 0/3 articles
+      Âges test: min=147j, max=152j, moy=149j
+    User 3:
+      Train: 13 articles | Test: 4 articles
+      Test ≤60j: 0/4 articles
+      Âges test: min=152j, max=152j, moy=152j
+    User 5:
+      Train: 67 articles | Test: 17 articles
+      Test ≤60j: 0/17 articles
+      Âges test: min=147j, max=152j, moy=149j
+    User 6:
+      Train: 27 articles | Test: 7 articles
+      Test ≤60j: 0/7 articles
+      Âges test: min=148j, max=154j, moy=151j
+    User 7:
+      Train: 17 articles | Test: 5 articles
+      Test ≤60j: 0/5 articles
+      Âges test: min=147j, max=148j, moy=147j
+
+[4/6] Test de recommandation détaillé sur un utilisateur...
+  Chargement du moteur de recommandation...
+
+  Test avec user_id: 1
+  Paramètres: Content=0.4, Collab=0.3, Trend=0.3
+  ❌ ERREUR lors de la génération: 'RecommendationEngine' object has no attribute 'get_recommendations'
+
+[5/6] Calcul de Precision@10 et Recall@10 étape par étape...
+Traceback (most recent call last):
+  File "/home/ser/Bureau/P10_reco_new/evaluation/diagnostic_data_exploration.py", line 221, in <module>
+    if len(recommendations) > 0:
+NameError: name 'recommendations' is not defined

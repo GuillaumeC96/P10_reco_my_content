@@ -1,0 +1,57 @@
+{
+  "configuration": {
+    "cpm": 6.0,
+    "pub_frequency_minutes": 3.55,
+    "num_users": 7982,
+    "boost_pct": 83.0
+  },
+  "metric1_ratio_engagement": {
+    "baseline": {
+      "time_minutes": 4.1,
+      "pubs_per_user": 1.1549295774647887,
+      "revenue_per_user": 0.006929577464788733,
+      "total_revenue": 55.311887323943665
+    },
+    "with_recommendation": {
+      "time_minutes": 7.502999999999999,
+      "pubs_per_user": 2.1135211267605634,
+      "revenue_per_user": 0.01268112676056338,
+      "total_revenue": 101.2207538028169
+    },
+    "gain": {
+      "revenue_euros": 45.908866478873236,
+      "revenue_pct": 82.99999999999999
+    }
+  },
+  "metric2_reading_rate": {
+    "baseline": {
+      "articles_read": 1.699699323477825,
+      "time_per_article_minutes": 2.177348180053956,
+      "total_time_minutes": 3.700837228613383,
+      "pubs_per_user": 1.042489360172784,
+      "revenue_per_user": 0.006254936161036705,
+      "total_revenue": 49.92690043739498
+    },
+    "hypothesis1_same_rate": {
+      "articles_read": 3.11044976196442,
+      "time_per_article_minutes": 2.177348180053956,
+      "total_time_minutes": 6.77253212836249,
+      "pubs_per_user": 1.9077555291161945,
+      "revenue_per_user": 0.011446533174697168,
+      "total_revenue": 91.3662278004328,
+      "gain_euros": 41.43932736303782,
+      "gain_pct": 82.99999999999999
+    },
+    "hypothesis2_improved_rate": {
+      "articles_read": 3.11044976196442,
+      "reading_rate": 1.633011135040467,
+      "time_per_article_minutes": 2.6128178160647475,
+      "total_time_minutes": 8.12703855403499,
+      "pubs_per_user": 2.2893066349394338,
+      "revenue_per_user": 0.0137358398096366,
+      "total_revenue": 109.63947336051935,
+      "gain_euros": 59.71257292312437,
+      "gain_pct": 119.59999999999997
+    }
+  }
+}

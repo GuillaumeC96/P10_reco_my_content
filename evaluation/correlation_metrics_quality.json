@@ -1,0 +1,13 @@
+{
+  "correlation": 0.7160468412939669,
+  "question": "Does increasing engagement ratio improve reading rate?",
+  "answer": "OUI - Corrélation Positive",
+  "quartile_comparison": {
+    "q1_engagement_pct": 33.251924192863285,
+    "q1_reading_rate": 0.45175025044443307,
+    "q4_engagement_pct": 100.0,
+    "q4_reading_rate": 1.5062173193012525,
+    "reading_rate_diff": 1.0544670688568194
+  },
+  "recommendation": "Hypothesis 2 (with caution)"
+}

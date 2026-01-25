@@ -1,0 +1,18 @@
+{
+  "num_users": 322897,
+  "num_articles": 35519,
+  "num_interactions": 1922443,
+  "matrix_shape": [
+    322897,
+    35519
+  ],
+  "matrix_density_pct": 0.01676211175033846,
+  "avg_weight": 0.025104977383885924,
+  "median_weight": 0.024400446179587285,
+  "files": {
+    "matrix": "/home/ser/Bureau/P10_reco_new/models/user_item_matrix_cleaned_v2.npz",
+    "similarity": "/home/ser/Bureau/P10_reco_new/models/item_similarity_cleaned_v2.npz",
+    "profiles": "/home/ser/Bureau/P10_reco_new/models/user_profiles_cleaned_v2.json",
+    "mappings": "/home/ser/Bureau/P10_reco_new/models/mappings_cleaned_v2.json"
+  }
+}

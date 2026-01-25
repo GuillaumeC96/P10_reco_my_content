@@ -47,9 +47,18 @@ models/*.pickle
 *.pkl
 *.npz
 
+# Fichiers volumineux > 100MB (limite GitHub)
+models/interaction_stats_*.csv
+models/interactions_cleaned*.csv
+models/user_profiles_enriched.json
+models/user_profiles_cleaned*.json
+azure_function/models/user_profiles_enriched.json
+
 # Garder la structure mais pas les gros fichiers
 !models/.gitkeep
 !models/preprocessing_stats.json
+!models/articles_metadata.csv
+!models/user_profiles.json
 
 # AWS et secrets
 .aws/

@@ -1,0 +1,19 @@
+{
+  "best_score": 1385.8231292847058,
+  "best_params_raw": {
+    "weight_content": 0.35418845790022135,
+    "weight_collab": 0.32391706093922584,
+    "weight_trend": 0.23124729167942648
+  },
+  "best_params_normalized": {
+    "weight_content": 0.38949509343697153,
+    "weight_collab": 0.3562061470447316,
+    "weight_trend": 0.25429875951829695
+  },
+  "config": {
+    "n_trials": 30,
+    "n_users_sample": 60,
+    "objective": "maximize_reading_time",
+    "timestamp": "2026-01-23T22:42:35.948824"
+  }
+}

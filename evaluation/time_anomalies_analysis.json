@@ -1,0 +1,30 @@
+{
+  "total_clicks": 21963,
+  "valid_clicks": 13981,
+  "excessive_time_count": 13975,
+  "excessive_time_pct": 99.95708461483441,
+  "time_stats": {
+    "original": {
+      "mean": 8592.639249696016,
+      "median": 500.0,
+      "std": 55457.61286576879,
+      "total": 120133689.35
+    },
+    "cleaned": {
+      "mean": 4.768612760174523,
+      "median": 3.3600000000000003,
+      "std": 4.2678003933300905,
+      "total": 66669.975
+    },
+    "reduction": {
+      "minutes": 120067019.375,
+      "pct": 99.9445035149085
+    }
+  },
+  "reading_rate_distribution": {
+    "very_fast_lt_0.5x": 0,
+    "normal_0.5_to_1.5x": 1,
+    "slow_1.5_to_3x": 5,
+    "excessive_gt_3x": 13975
+  }
+}

@@ -55,7 +55,11 @@ def lambda_handler(event, context):
         # Récupérer les paramètres
         user_id = params.get('user_id')
         n_recommendations = int(params.get('n_recommendations', 5))
-        alpha = float(params.get('alpha', 0.6))
+
+        # Nouveaux paramètres avec 3 coefficients (ratio 3:2:1 par défaut)
+        weight_collab = float(params.get('weight_collab', 3.0))
+        weight_content = float(params.get('weight_content', 2.0))
+        weight_trend = float(params.get('weight_trend', 1.0))
         use_diversity = params.get('use_diversity', 'true').lower() == 'true'
 
         # Validation
@@ -68,7 +72,7 @@ def lambda_handler(event, context):
                 },
                 'body': json.dumps({
                     'error': 'Le paramètre user_id est requis',
-                    'example': '/recommend?user_id=123&n_recommendations=5'
+                    'example': '/recommend?user_id=123&n_recommendations=5&weight_collab=3&weight_content=2&weight_trend=1'
                 })
             }
 
@@ -91,7 +95,9 @@ def lambda_handler(event, context):
         recommendations = rec_engine.recommend(
             user_id=user_id,
             n_recommendations=n_recommendations,
-            alpha=alpha,
+            weight_collab=weight_collab,
+            weight_content=weight_content,
+            weight_trend=weight_trend,
             use_diversity=use_diversity
         )
 
@@ -101,7 +107,10 @@ def lambda_handler(event, context):
             'n_recommendations': len(recommendations),
             'recommendations': recommendations,
             'parameters': {
-                'alpha': alpha,
+                'weight_collab': weight_collab,
+                'weight_content': weight_content,
+                'weight_trend': weight_trend,
+                'weights_ratio': f"{weight_collab}:{weight_content}:{weight_trend}",
                 'use_diversity': use_diversity
             }
         }

@@ -1,0 +1,257 @@
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+================================================================================
+TUNING PARALLÉLISÉ + EARLY STOPPING - 13 PARAMÈTRES (v8)
+================================================================================
+
+Configuration (adapté Ryzen 7 Pro / 30GB RAM):
+  - 30 trials (optimisation bayésienne)
+  - 50 users max par trial
+  - 12 workers parallèles
+  - Early stopping: phase1 < 0.05, phase2 < 0.08
+  - Baseline: 0.2124
+
+Chargement des données...
+✓ Stats chargés: 2950710 interactions
+Chargement des utilisateurs de validation...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  44%|████▍     | 143400/322897 [00:00<00:00, 1418281.01it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2372247.88it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+✓ 50 utilisateurs sélectionnés
+
+Création du pool de 12 workers...
+[I 2025-12-28 00:02:51,879] A new study created in memory with name: no-name-97528119-101f-4e53-b669-5c486babf750
+✓ Pool créé
+
+================================================================================
+OPTIMISATION EN COURS
+================================================================================
+  0%|          | 0/30 [00:00<?, ?it/s]INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  48%|████▊     | 154609/322897 [00:00<00:00, 1533760.83it/s]Split des utilisateurs:  49%|████▊     | 157213/322897 [00:00<00:00, 1572067.78it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2517895.55it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2595373.50it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs:  24%|██▎       | 76017/322897 [00:00<00:00, 751358.92it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  76%|███████▋  | 246763/322897 [00:00<00:00, 1311029.12it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 1495137.21it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  44%|████▍     | 142588/322897 [00:00<00:00, 1425823.57it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2465359.85it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  56%|█████▌    | 180587/322897 [00:00<00:00, 1805781.31it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2669331.76it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs:  40%|███▉      | 129101/322897 [00:00<00:00, 1290626.59it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2185299.08it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  41%|████      | 132138/322897 [00:00<00:00, 1321302.50it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2039177.93it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+Split des utilisateurs:  40%|███▉      | 129101/322897 [00:00<00:00, 1265678.35it/s]INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2180363.10it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  53%|█████▎    | 172530/322897 [00:00<00:00, 1725202.93it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2691693.31it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  43%|████▎     | 139614/322897 [00:00<00:00, 1396038.15it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2029141.51it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs:  43%|████▎     | 139163/322897 [00:00<00:00, 1391571.61it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2475761.48it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  78%|███████▊  | 251169/322897 [00:00<00:00, 2511033.85it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3004183.94it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions

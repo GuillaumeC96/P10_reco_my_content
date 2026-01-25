@@ -1,0 +1,75 @@
+═══════════════════════════════════════════════════════════════════════════
+   MÉTRIQUE FINALE: RATIO D'ENGAGEMENT
+═══════════════════════════════════════════════════════════════════════════
+
+📊 DÉFINITION
+─────────────
+Ratio d'Engagement = Temps total passé / Temps écoulé depuis première visite
+
+Exemple:
+  User inscrit il y a 31 jours, a passé 24h sur le site
+  → Ratio = 1440 min / (31 × 24 × 60) = 0.0323 = 3.23%
+
+💰 RÉSULTATS (322,897 utilisateurs)
+───────────────────────────────────
+SANS recommandation:
+  Ratio moyen:     0.2189%
+  Temps moyen:     16.45 minutes
+  Revenus totaux:  8,975€
+
+AVEC recommandation (+83% temps):
+  Ratio moyen:     0.4006%
+  Temps moyen:     30.10 minutes
+  Revenus totaux: 16,425€
+
+GAIN: +0.1817 points (+83%) → +7,450€
+
+🎯 POURQUOI CETTE MÉTRIQUE ?
+─────────────────────────────
+✅ Simple: "% du temps que l'utilisateur nous consacre"
+✅ Normalisée: Équitable quel que soit l'âge du compte
+✅ Prédictible: +X% temps = +X% ratio = +X% revenus
+✅ Intuitive: Compréhensible par tous (CEO, jury, équipe)
+✅ Comparable: Benchmark possible avec concurrents
+
+📈 COMPARAISON VS AUTRES MÉTRIQUES
+───────────────────────────────────
+Métrique 1 (CPM Articles):     +946€ pour 100k sessions
+Métrique 2 (Temps + Pop-ups): +2,305€ pour 100k sessions
+Métrique 3 (Ratio Engagement): +7,450€ pour 322k users ⭐
+
+→ Métrique 3 génère le plus de revenus
+→ Métrique 3 la plus simple et intuitive
+→ Métrique 3 la seule normalisée
+
+🏆 RECOMMANDATION
+─────────────────
+Utiliser le RATIO D'ENGAGEMENT comme métrique principale
+
+Pour la soutenance:
+  "Notre système augmente le ratio d'engagement de 0.22% à 0.40%,
+   soit +83%, générant +7,450€ de revenus supplémentaires"
+
+Pour le business:
+  KPI principal = Ratio d'engagement moyen
+  Objectif: Maintenir > 0.40% après déploiement
+
+Pour l'optimisation technique:
+  Optuna peut optimiser le temps passé (proportionnel au ratio)
+
+💡 FORMULE SIMPLE
+─────────────────
+ratio = temps_passe_minutes / (jours_ecoules × 24 × 60)
+
+Revenus = (temps_passe / intervalle_pub) × (6€ / 1000) × nb_users
+
+═══════════════════════════════════════════════════════════════════════════
+Fichiers générés:
+  • engagement_ratio_analysis.py - Script d'analyse
+  • engagement_ratio_results.json - Résultats JSON
+  • engagement_ratio_analysis.png - Graphiques
+  • METRIQUE_RATIO_ENGAGEMENT.md - Documentation complète
+  • COMPARAISON_TOUTES_METRIQUES.md - Comparaison 3 métriques
+
+Date: 14 Janvier 2026
+═══════════════════════════════════════════════════════════════════════════

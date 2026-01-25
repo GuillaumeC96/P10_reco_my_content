@@ -1,0 +1,49 @@
+═══════════════════════════════════════════════════════════════════════════
+   RÉSUMÉ ULTRA-CONCIS: NOUVELLE MÉTRIQUE TEMPS PASSÉ
+═══════════════════════════════════════════════════════════════════════════
+
+📊 LE CHANGEMENT
+────────────────
+AVANT: Revenus basés sur le NOMBRE D'ARTICLES lus (complexe, 2 types de pubs)
+APRÈS: Revenus basés sur le TEMPS PASSÉ (simple, 1 type de pub)
+
+💰 LES CHIFFRES (100,000 sessions/an, Fréquence N2 recommandée)
+─────────────────────────────────────────────────────────────
+SANS système: 2,777€/an (temps moyen: 16.45 min)
+AVEC système: 5,082€/an (temps moyen: 30.10 min)
+GAIN:        +2,305€ (+83%)
+
+🎯 4 FRÉQUENCES DISPONIBLES (quantiles des durées de session)
+──────────────────────────────────────────────────────────────
+N1 (1 min):    +8,190€/an  |  Max revenus, risque UX
+N2 (3.55 min): +2,305€/an  |  ÉQUILIBRE OPTIMAL ⭐
+N3 (15.75 min): +520€/an   |  Priorité UX
+N4 (38.38 min): +213€/an   |  UX premium
+
+✅ RECOMMANDATION: N2 (1 pub toutes les 3.55 minutes)
+──────────────────────────────────────────────────────
+Pourquoi? Compromis optimal revenus/UX, fréquence médiane (50% users)
+
+📈 COMPARAISON VS ANCIENNE MÉTRIQUE
+────────────────────────────────────
+Ancienne (CPM articles): +946€/an
+Nouvelle (Temps N2):    +2,305€/an
+Gain supplémentaire:    +1,359€/an (+144%)
+
+💡 FORMULE SIMPLE
+─────────────────
+Revenus = (Temps_passé / Intervalle_pub) × (6€ / 1000)
+
+Exemple: Session 30 min, Fréquence N2 (3.55 min)
+→ (30 / 3.55) × (6 / 1000) = 0.0508€ par session
+→ 0.0508€ × 100,000 sessions = 5,082€/an
+
+🚀 AVANTAGES
+────────────
+✅ Simple à comprendre et à calculer
+✅ Flexible (4 fréquences testables)
+✅ Prédictible (+X% temps = +X% revenus)
+✅ Réaliste (modèle de pub moderne)
+✅ Optimisation directe (métrique = objectif)
+
+═══════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,36 @@
+ANALYSE DES EXTREMUMS - PARAMÈTRES OPTIMAUX
+============================================
+
+NIVEAU 1 : 9 Poids des Interactions
+------------------------------------
+
+Paramètre    | Plage          | Optimal | Position      | Statut
+-------------|----------------|---------|---------------|--------
+w_time       | [0.15 - 0.50]  | 0.496   | 99% de max    | ⚠️ EXTREMUM
+w_clicks     | [0.05 - 0.35]  | 0.314   | 88% de max    | ✓ OK
+w_session    | [0.05 - 0.25]  | 0.168   | 59% de max    | ✓ OK
+w_device     | [0.02 - 0.15]  | 0.133   | 87% de max    | ⚠️ PROCHE
+w_env        | [0.01 - 0.10]  | 0.057   | 52% de max    | ✓ OK
+w_referrer   | [0.01 - 0.10]  | 0.023   | 14% de max    | ✓ OK
+w_os         | [0.01 - 0.10]  | 0.032   | 24% de max    | ✓ OK
+w_country    | [0.01 - 0.10]  | 0.039   | 32% de max    | ✓ OK
+w_region     | [0.01 - 0.10]  | 0.082   | 80% de max    | ✓ OK
+
+PROBLÈMES NIVEAU 1:
+- w_time à 99% de la limite max → pourrait aller plus haut !
+- w_device à 87% de la limite max → pourrait aller plus haut !
+
+NIVEAU 2 : 3 Poids Stratégie Hybride
+------------------------------------
+
+Paramètre    | Plage      | Optimal | Position      | Statut
+-------------|------------|---------|---------------|--------
+collab       | [1 - 5]    | 5       | 100% de max   | ❌ EXTREMUM
+content      | [1 - 5]    | 1       | 0% (min)      | ❌ EXTREMUM
+trend        | [0 - 3]    | 1       | 33% de max    | ✓ OK
+
+PROBLÈMES NIVEAU 2:
+- collab à l'EXTREMUM MAX (5/5) → pourrait aller à 6, 7, 8, 10 !
+- content à l'EXTREMUM MIN (1/5) → pourrait aller à 0 !
+
+RECOMMANDATION: RELANCER OPTIMISATION AVEC PLAGES ÉLARGIES

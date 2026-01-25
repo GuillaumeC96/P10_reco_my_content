@@ -1,0 +1,250 @@
+=======================================================================
+LIVRABLE 2 - SCRIPTS DÉVELOPPÉS SUR GITHUB
+=======================================================================
+
+Étudiant: Guillaume Cassez
+Email: guillaumecassezwork@gmail.com
+Projet: P10 - My Content - Système de Recommandation d'Articles
+Date: Décembre 2024
+
+=======================================================================
+DÉPÔT GITHUB
+=======================================================================
+
+🔗 URL du dépôt:
+https://github.com/GuillaumeC96/P10_reco_my_content
+
+Branche principale: main
+Commit initial: 754d959
+
+=======================================================================
+CONTENU DU DÉPÔT
+=======================================================================
+
+Le dépôt GitHub contient tous les scripts permettant le déploiement
+de bout-en-bout de l'application, organisés comme suit:
+
+1. SCRIPTS DE PRÉPARATION DES DONNÉES
+   - data_preparation/data_exploration.py
+   - data_preparation/data_preprocessing.py
+   - data_preparation/upload_to_azure.py
+
+2. CODE APPLICATIF
+   - app/streamlit_app.py (Application Streamlit)
+   - azure_function/RecommendationFunction/__init__.py (Azure Functions Handler)
+   - azure_function/recommendation_engine.py (Moteur de recommandation hybride)
+   - azure_function/config.py (Configuration)
+   - azure_function/utils.py (Utilitaires)
+
+3. SCRIPTS DE DÉPLOIEMENT
+   - azure_function/deploy_azure.sh (Déploiement automatisé Azure Functions)
+
+4. TESTS
+   - test_local.py (Tests locaux du moteur)
+   - test_diversity.py (Tests du filtre de diversité)
+
+5. DOCUMENTATION
+   - README.md (Documentation complète)
+   - docs/architecture_technique.md
+   - docs/architecture_cible.md
+   - cahier_des_charges.md
+   - QUICKSTART.md
+
+6. CONFIGURATION
+   - requirements.txt (Dépendances Python globales)
+   - app/requirements.txt (Dépendances Streamlit)
+   - azure_function/requirements.txt (Dépendances Azure Functions)
+   - .gitignore
+
+=======================================================================
+INSTRUCTIONS DE DÉPLOIEMENT
+=======================================================================
+
+PRÉREQUIS
+---------
+- Python 3.9+
+- Azure CLI configuré avec credentials valides
+- Compte Azure avec accès à Azure Functions et Azure Blob Storage
+- Git installé
+
+ÉTAPE 1: CLONER LE DÉPÔT
+-------------------------
+git clone https://github.com/GuillaumeC96/P10_reco_my_content.git
+cd P10_reco_my_content
+
+ÉTAPE 2: INSTALLER LES DÉPENDANCES
+-----------------------------------
+# Dépendances globales
+pip install -r requirements.txt
+
+# Dépendances Streamlit
+cd app
+pip install -r requirements.txt
+cd ..
+
+ÉTAPE 3: PRÉPARER LES DONNÉES (optionnel si données déjà préparées)
+--------------------------------------------------------------------
+# Explorer les données
+python3 data_preparation/data_exploration.py
+
+# Preprocessing (10-15 minutes)
+python3 data_preparation/data_preprocessing.py
+
+Les fichiers générés seront dans le dossier models/:
+- user_item_matrix.npz (Matrice sparse user-article)
+- mappings.pkl (Mappings user_id/article_id vers indices)
+- article_popularity.pkl (Scores de popularité)
+- user_profiles.json (Profils utilisateurs)
+- embeddings_filtered.pkl (Embeddings des articles actifs)
+- articles_metadata.csv (Métadonnées)
+- preprocessing_stats.json (Statistiques)
+
+ÉTAPE 4: CRÉER UN container Azure Blob Storage
+----------------------------
+az storage blob mb mycontent-models
+
+ÉTAPE 5: UPLOADER LES MODÈLES VERS Azure Blob Storage
+--------------------------------------
+python3 data_preparation/upload_to_azure.py --container my-content-reco-container
+
+ÉTAPE 6: DÉPLOYER LA Azure function
+-------------------------------------
+cd azure_function
+./deploy_azure.sh
+
+Le script va automatiquement:
+- Créer le rôle Azure RBAC nécessaire
+- Packager les dépendances (NumPy, Scikit-learn, azure-storage-blob)
+- Créer/mettre à jour la Azure Function
+- Configurer la HTTP Trigger URL (HTTP public)
+- Afficher l'URL d'accès à l'API
+
+ÉTAPE 7: LANCER L'APPLICATION STREAMLIT
+----------------------------------------
+cd app
+streamlit run streamlit_app.py
+
+L'application sera accessible sur http://localhost:8501
+
+=======================================================================
+UTILISATION DE L'APPLICATION
+=======================================================================
+
+MODE LOCAL (sans Azure Functions)
+-------------------------
+1. Cocher "Mode local" dans l'application Streamlit
+2. Sélectionner un user_id
+3. Ajuster les paramètres:
+   - Nombre de recommandations (1-50)
+   - Alpha (poids collaborative vs content-based)
+   - Activer/désactiver le filtre de diversité
+4. Cliquer sur "Générer des recommandations"
+5. Visualiser les résultats
+6. Télécharger en CSV si besoin
+
+MODE AZURE FUNCTION (API serverless)
+-----------------------------
+1. Décocher "Mode local"
+2. Entrer l'URL de la Azure Function
+3. Suivre les mêmes étapes que le mode local
+
+API REST DIRECTE
+----------------
+Vous pouvez aussi appeler directement l'API Azure Functions:
+
+# Requête simple
+curl -X POST https://func-mycontent-reco-1269.azurewebsites.net/api/recommend \
+  -H "Content-Type: application/json" \
+  -d '{"user_id": 123, "n": 5}'
+
+# Avec tous les paramètres
+curl -X POST https://func-mycontent-reco-1269.azurewebsites.net/api/recommend \
+  -H "Content-Type: application/json" \
+  -d '{"user_id": 123, "n": 5, "weights": {"collab": 0.4, "content": 0.3, "trend": 0.3}, "use_diversity": true}'
+
+=======================================================================
+TESTS
+=======================================================================
+
+# Test local du moteur de recommandation
+cd azure_function
+python3 -c "
+from recommendation_engine import RecommendationEngine
+engine = RecommendationEngine(models_path='../models')
+engine.load_models()
+recs = engine.recommend(user_id=123, n_recommendations=5)
+print(recs)
+"
+
+# Test de la Azure Functions déployée
+curl "https://your-azurewebsites.net/?user_id=0&n_recommendations=5"
+
+# Test du filtre de diversité
+python3 test_diversity.py
+
+=======================================================================
+ARCHITECTURE TECHNIQUE
+=======================================================================
+
+COMPOSANTS
+----------
+1. Application Streamlit (Interface utilisateur)
+   - Framework: Streamlit 1.28+
+   - Langage: Python 3.9
+   - Port: 8501
+
+2. Azure Function (Serverless compute (Azure Functions) (Azure Functions))
+   - Runtime: Python 3.9
+   - Memory: 1024 MB
+   - Timeout: 30s
+   - Trigger: HTTP Trigger URL (HTTP)
+
+3. Azure Blob Storage (Stockage)
+   - Container: my-content-reco-container
+   - Taille: ~350 MB (modèles + embeddings)
+   - Accès: Azure RBAC Role
+
+ALGORITHME DE RECOMMANDATION
+-----------------------------
+- Approche hybride: Collaborative Filtering + Content-Based
+- Formule: Score = α × score_collab + (1-α) × score_content
+- Gestion Cold Start (nouveaux utilisateurs)
+- Filtre de diversité des catégories
+- Exclusion des articles déjà lus
+
+=======================================================================
+STATISTIQUES DU PROJET
+=======================================================================
+
+- 32 fichiers versionnés sur GitHub
+- 370 529 lignes de code/documentation
+- Dataset: 364 047 articles, ~845 000 interactions
+- Utilisateurs actifs: ~38 000 (≥5 interactions)
+- Articles actifs: ~312 000
+- Sparsité matrice: >99%
+
+=======================================================================
+CONTACT ET SUPPORT
+=======================================================================
+
+📧 Email: guillaumecassezwork@gmail.com
+🔗 GitHub: https://github.com/GuillaumeC96
+🏢 Projet: My Content - Encourager la lecture
+
+Pour toute question ou problème:
+1. Ouvrir une issue sur GitHub
+2. Contacter par email
+3. Consulter la documentation complète dans README.md
+
+=======================================================================
+LICENCE
+=======================================================================
+
+Ce projet est développé dans le cadre d'un projet éducatif
+(Formation OpenClassrooms - Data Scientist)
+
+Dernière mise à jour: Décembre 2024
+Version: 1.0.0 (MVP)
+Status: ✅ Opérationnel
+
+=======================================================================

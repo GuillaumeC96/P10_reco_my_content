@@ -161,11 +161,14 @@ L'application sera accessible sur `http://localhost:8501`
 ### Via API (Lambda Function URL)
 
 ```bash
-# Exemple de requête
+# Exemple de requête simple
 curl "https://your-lambda-url.lambda-url.us-east-1.on.aws/?user_id=123&n_recommendations=5"
 
-# Avec tous les paramètres
-curl "https://your-lambda-url.lambda-url.us-east-1.on.aws/?user_id=123&n_recommendations=5&alpha=0.6&use_diversity=true"
+# Avec tous les paramètres (ratio 3:2:1)
+curl "https://your-lambda-url.lambda-url.us-east-1.on.aws/?user_id=123&n_recommendations=5&weight_collab=3&weight_content=2&weight_trend=1&use_diversity=true"
+
+# Exemple avec ratio personnalisé (plus de poids sur les tendances)
+curl "https://your-lambda-url.lambda-url.us-east-1.on.aws/?user_id=123&n_recommendations=5&weight_collab=2&weight_content=2&weight_trend=4"
 ```
 
 ### Réponse JSON
@@ -186,7 +189,10 @@ curl "https://your-lambda-url.lambda-url.us-east-1.on.aws/?user_id=123&n_recomme
     ...
   ],
   "parameters": {
-    "alpha": 0.6,
+    "weight_collab": 3.0,
+    "weight_content": 2.0,
+    "weight_trend": 1.0,
+    "weights_ratio": "3.0:2.0:1.0",
     "use_diversity": true
   }
 }
@@ -196,9 +202,11 @@ curl "https://your-lambda-url.lambda-url.us-east-1.on.aws/?user_id=123&n_recomme
 
 - **user_id** (requis): ID de l'utilisateur (0 à N)
 - **n_recommendations** (optionnel): Nombre de recommandations (1-50, défaut: 5)
-- **alpha** (optionnel): Poids du collaborative filtering (0-1, défaut: 0.6)
-  - 0 = 100% Content-based
-  - 1 = 100% Collaborative
+- **weight_collab** (optionnel): Poids du collaborative filtering (défaut: 3.0)
+- **weight_content** (optionnel): Poids du content-based filtering (défaut: 2.0)
+- **weight_trend** (optionnel): Poids du trend/popularity filtering (défaut: 1.0)
+  - Les poids sont normalisés automatiquement pour sommer à 1.0
+  - Ratio par défaut: 3:2:1 (50% Collaborative, 33% Content, 17% Trend)
 - **use_diversity** (optionnel): Activer la diversité des catégories (défaut: true)
 
 ## 🧪 Tests
@@ -323,17 +331,31 @@ La Lambda Function nécessite les permissions suivantes:
 - Trouve les articles similaires via similarité cosinus
 - Exclut les articles déjà lus
 
-### 3. Approche Hybride
-- Combine les scores: `score_final = α × score_collab + (1-α) × score_content`
-- Valeur par défaut: α = 0.6
+### 3. Filtrage par Tendances/Popularité
+- Recommande les articles les plus populaires globalement
+- Basé sur le nombre total de clics/interactions
+- Exclut les articles déjà lus par l'utilisateur
 
-### 4. Gestion du Cold Start
-- Nouveaux utilisateurs: recommandations basées sur la popularité
+### 4. Approche Hybride à 3 Coefficients
+Le système combine les trois approches avec des poids configurables:
+
+```
+score_final = w_collab × score_collab + w_content × score_content + w_trend × score_trend
+```
+
+**Valeurs par défaut:** `w_collab=3, w_content=2, w_trend=1`
+- Les poids sont normalisés automatiquement (ratio 3:2:1 = 50%:33%:17%)
+- Permet d'équilibrer personnalisation (collaborative/content) et découverte (tendances)
+- Les articles populaires/récents sont toujours présents dans les recommandations
+
+### 5. Gestion du Cold Start
+- Nouveaux utilisateurs: recommandations basées sur la popularité (100%)
 - Nouveaux articles: utilisation pure du content-based
 
-### 5. Filtre de Diversité
+### 6. Filtre de Diversité
 - Assure une variété de catégories dans les recommandations
 - Évite la sur-représentation d'une catégorie
+- Applique une sélection round-robin par catégorie
 
 ## 📈 Métriques et Performance
 

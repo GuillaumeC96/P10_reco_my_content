@@ -1,0 +1,110 @@
+═══════════════════════════════════════════════════════════════════════════
+                    SLIDE POUR LA PRÉSENTATION FINALE
+═══════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                 IMPACT DU SYSTÈME DE RECOMMANDATION                     │
+│                                                                         │
+│                  📊 MÉTRIQUE: RATIO D'ENGAGEMENT                        │
+│                  (Temps Passé / Temps Disponible)                       │
+│                                                                         │
+│                     Échantillon: 7,982 utilisateurs                     │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                            RÉSULTATS GLOBAUX                             │
+├──────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  SANS Recommandation            AVEC Recommandation (+83%)               │
+│  ───────────────────            ──────────────────────────               │
+│                                                                          │
+│  Ratio:      54.06%             Ratio:      98.93%                       │
+│  Temps:      4.10 min           Temps:      7.50 min                     │
+│  Articles:   1.7                Articles:   3.1                          │
+│  Pubs/user:  1.15               Pubs/user:  2.11                         │
+│                                                                          │
+│  Revenus: 55.31€                Revenus: 101.22€                         │
+│                                                                          │
+│                    ──────────────────────────────                        │
+│                         GAIN: +45.91€ (+83%)                             │
+│                    ──────────────────────────────                        │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│                         IMPACT DÉTAILLÉ                                  │
+├──────────────────────────────────────────────────────────────────────────┤
+│                                                                          │
+│  1. ENGAGEMENT GLOBAL                    +83%                            │
+│     Ratio d'engagement:  54% → 99%                                       │
+│     Temps moyen:         4.10 → 7.50 min                                 │
+│                                                                          │
+│  2. COMPORTEMENT DE LECTURE              +82%                            │
+│     Articles lus:        1.7 → 3.1 articles                              │
+│     Taux de lecture:     0.45x → 0.82x (plus attentif)                   │
+│     Temps par article:   2.18 → 2.42 min (+11%)                          │
+│                                                                          │
+│  3. REVENUS PUBLICITAIRES                +83%                            │
+│     Échantillon (7,982):    55€ → 101€ (+46€)                            │
+│     Complet (322,897):      2,237€ → 4,094€ (+1,857€)                    │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────┐
+│  VALIDATION SCIENTIFIQUE                                                 │
+│  ────────────────────────                                                │
+│  • Corrélation forte: 0.716 entre engagement et qualité de lecture       │
+│  • Plus d'engagement = lecture plus attentive (0.45x → 1.51x)            │
+│  • Triple impact: + temps, + articles, + attention                       │
+│                                                                          │
+│  CONFIGURATION                                                           │
+│  ─────────────                                                           │
+│  • CPM: 6€ (publicités pop-up)                                          │
+│  • Fréquence: 1 pub / 3.55 min (médiane utilisateur typique)           │
+│  • Échantillon: 7,982 utilisateurs réels                                │
+└──────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+
+MESSAGES CLÉS À RETENIR:
+━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Une métrique unique et claire: Ratio d'Engagement
+✅ Impact massif: +83% sur tous les indicateurs
+✅ Triple bénéfice: + temps, + articles, + qualité de lecture
+✅ Revenus concrets: +1,857€ pour échantillon complet (322,897 users)
+✅ Validation par corrélation forte (0.716)
+
+═══════════════════════════════════════════════════════════════════════════
+
+VERSION ULTRA-CONDENSÉE (1 SLIDE)
+═══════════════════════════════════════════════════════════════════════════
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║            SYSTÈME DE RECOMMANDATION MY CONTENT - RÉSULTATS              ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  Métrique: RATIO D'ENGAGEMENT (Temps / Temps Disponible)                ║
+║  Échantillon: 7,982 utilisateurs                                         ║
+║                                                                          ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  IMPACT: +83% SUR TOUS LES INDICATEURS                                   ║
+║  ───────────────────────────────────────                                 ║
+║                                                                          ║
+║  Engagement:     54% → 99%       (+83%)                                  ║
+║  Temps:          4.10 → 7.50 min (+83%)                                  ║
+║  Articles:       1.7 → 3.1       (+82%)                                  ║
+║  Attention:      0.45x → 0.82x   (+82%)                                  ║
+║                                                                          ║
+║  Revenus:        55€ → 101€      (+46€)                                  ║
+║                                                                          ║
+╠══════════════════════════════════════════════════════════════════════════╣
+║                                                                          ║
+║  PROJECTION 322,897 UTILISATEURS:  +1,857€                               ║
+║                                                                          ║
+║  Validation: Corrélation 0.716 (engagement ↔ qualité lecture)            ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════

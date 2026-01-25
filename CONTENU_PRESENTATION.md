@@ -1,5 +1,5 @@
 # My Content - Système de Recommandation d'Articles
-## Contenu de la Présentation (15-25 slides)
+## Contenu de la Présentation - VERSION FINALE (avec améliorations)
 
 ---
 
@@ -9,7 +9,7 @@
 Encourager la lecture par des recommandations pertinentes
 
 Guillaume Cassez - CTO & Co-fondateur
-Décembre 2024
+Janvier 2026
 
 ---
 
@@ -59,7 +59,32 @@ Décembre 2024
 
 ---
 
-## SLIDE 5 - DESCRIPTION FONCTIONNELLE DE L'APPLICATION
+## SLIDE 5 - EXPLORATION ET PRÉPARATION DES DONNÉES
+
+**Phase d'analyse préliminaire (EDA)**
+
+**Analyse descriptive**
+- 461 catégories → Focus sur top 20 (80% du traffic)
+- Distribution articles/catégorie: [20, 50K], médiane ~300
+- Nombre de mots par article: [50, 5000], moyenne ~450 mots
+- Embeddings 250D pré-calculés (BERT)
+
+**Découvertes clés lors de l'exploration**
+- ⚠️ Temps de lecture incohérents (jusqu'à 48h pour un article!)
+- 📊 Sessions multi-onglets très fréquentes
+- 🎯 Nécessité de nettoyer les "temps fantômes"
+
+**Actions de préparation**
+1. **Nettoyage des anomalies temporelles** (détaillé slide 11)
+2. **Calcul de 9 signaux de qualité** (détaillé slide 12)
+3. **Création matrice user-item pondérée** (temps réel + clics)
+4. **Génération modèles lite** (10K users) pour déploiement
+
+**Script:** `data_exploration.py`, `analyze_time_anomalies.py`, `clean_interaction_data_v3.py`
+
+---
+
+## SLIDE 6 - DESCRIPTION FONCTIONNELLE DE L'APPLICATION
 
 **Architecture MVP - 3 composants principaux**
 
@@ -69,37 +94,38 @@ Décembre 2024
    - Affichage des 5 articles recommandés
    - Export des résultats
 
-2. **AWS Lambda Function** (Serverless compute)
+2. **Azure Functions** (Serverless compute)
    - Traitement des requêtes HTTP
    - Génération des recommandations
    - API accessible via Function URL
+   - **Endpoint:** https://func-mycontent-reco-1269.azurewebsites.net/api/recommend
 
-3. **AWS S3** (Stockage)
-   - Modèles de Machine Learning
+3. **Azure Blob Storage** (Stockage)
+   - Modèles de Machine Learning (86 MB lite)
    - Embeddings des articles
    - Métadonnées
 
 ---
 
-## SLIDE 6 - DÉMONSTRATION APPLICATION
+## SLIDE 7 - DÉMONSTRATION APPLICATION
 
 **Interface Streamlit**
 
 Fonctionnalités démontrées:
 - Saisie d'un user_id
 - Choix du nombre de recommandations (1-50)
-- Réglage du paramètre alpha (collaborative vs content-based)
+- Réglage des poids (collaborative, content, temporal)
 - Activation/désactivation du filtre de diversité
 - Affichage des résultats avec métadonnées complètes
 - Téléchargement CSV
 
 **Deux modes disponibles**
 - Mode Local: Calcul en local sur la machine
-- Mode Lambda: Appel API AWS Lambda (serverless)
+- Mode Azure: Appel API Azure Functions (serverless)
 
 ---
 
-## SLIDE 7 - APPROCHES DE RECOMMANDATION ANALYSÉES
+## SLIDE 8 - APPROCHES DE RECOMMANDATION ANALYSÉES
 
 **3 approches principales étudiées**
 
@@ -111,13 +137,14 @@ Fonctionnalités démontrées:
    - Basé sur les caractéristiques des articles
    - "Recommander des articles similaires à ceux déjà lus"
 
-3. **Approche Hybride** ⭐ (Solution retenue)
+3. **Approche Hybride + Temporal** ⭐ (Solution retenue)
    - Combine les deux approches précédentes
+   - Ajoute un composant temporal (tendances)
    - Tire parti des forces de chaque méthode
 
 ---
 
-## SLIDE 8 - FILTRAGE COLLABORATIF
+## SLIDE 9 - FILTRAGE COLLABORATIF
 
 **Principe**
 - Calcule la similarité entre utilisateurs via leurs interactions
@@ -138,7 +165,7 @@ Fonctionnalités démontrées:
 
 ---
 
-## SLIDE 9 - FILTRAGE BASÉ SUR LE CONTENU
+## SLIDE 10 - FILTRAGE BASÉ SUR LE CONTENU
 
 **Principe**
 - Utilise les embeddings (vecteurs 250D) des articles
@@ -159,50 +186,111 @@ Fonctionnalités démontrées:
 
 ---
 
-## SLIDE 10 - APPROCHE HYBRIDE (SOLUTION RETENUE)
+## SLIDE 11 - APPROCHE HYBRIDE + TEMPORAL (SOLUTION RETENUE)
 
-**Formule de scoring**
+**Formule de scoring à 3 composantes**
 
 ```
-Score_final = α × Score_collaborative + (1-α) × Score_content
+Score_final = 40% × Score_content + 30% × Score_collaborative + 30% × Score_temporal
 ```
 
-**Paramètre α (poids du collaboratif)**
-- α = 0.6 par défaut (60% collaborative, 40% content)
-- Ajustable selon les besoins
+**Poids configurables**
+- Content-Based: 40% (profil utilisateur)
+- Collaborative: 30% (utilisateurs similaires)
+- Temporal/Trending: 30% (articles récents populaires)
 
-**Pourquoi l'hybride ?**
-- ✅ Combine les forces des deux approches
+**Pourquoi l'hybride à 3 composantes ?**
+- ✅ Combine les forces des approches
 - ✅ Atténue les faiblesses respectives
 - ✅ Meilleure performance globale
-- ✅ Flexibilité via le paramètre alpha
+- ✅ Flexibilité via poids ajustables
+- ✅ Équilibre personnalisation et découverte
 
 **Composants additionnels**
 - Filtre de diversité des catégories
 - Gestion du Cold Start (fallback sur popularité)
 - Exclusion des articles déjà lus
+- Temporal decay (favorise articles récents)
 
 ---
 
-## SLIDE 11 - COMPARAISON DES APPROCHES
+## SLIDE 12 - AMÉLIORATION MAJEURE: DÉTECTION TEMPS FANTÔMES
 
-| Critère | Collaborative | Content-Based | **Hybride** |
-|---------|--------------|---------------|-------------|
-| Nouveaux utilisateurs | ❌ Faible | ✅ Bon | ✅ **Bon** |
+**Problématique identifiée**
+- Utilisateurs laissent des onglets ouverts sans lire
+- Multiples onglets ouverts simultanément
+- Dernier article de la session peut rester affiché des heures
+- **Impact:** Fausse le calcul de l'engagement réel
+
+**Solutions implémentées** ⭐
+
+**1. Filtre 30 secondes (seuil critique)**
+- Temps < 30 secondes → Article NON lu (clic accidentel)
+- 30 secondes = temps minimum pour afficher 2ème publicité
+- **Impact business:** Seules les vraies lectures comptent
+
+**2. Détection clics accidentels (< 10 secondes)**
+- Clic par erreur, titre trompeur, retour arrière rapide
+- Temps = 0 (pas de poids dans les recommandations)
+
+**3. Gestion changements de session**
+- Changement de session → ancien article temps = 0
+- Nouvelle session = ancien article abandonné
+
+**4. Plafonnement temps de lecture**
+- Plafonné à 1× le temps théorique de lecture
+- Basé sur nombre de mots / 200 mots par minute
+
+**Résultat:** Recommandations basées sur interactions réelles, pas sur onglets ouverts
+
+---
+
+## SLIDE 13 - 9 SIGNAUX DE QUALITÉ D'INTERACTION
+
+**Au-delà du simple "clic" ou "temps passé"**
+
+**Signaux utilisés pour pondérer chaque interaction:**
+
+1. **Temps passé** (ajusté, filtré >= 30s)
+2. **Nombre de clics** sur l'article
+3. **Qualité de session** (taille session: 2-9 articles)
+4. **Type de device** (Desktop > Tablette > Mobile)
+5. **Environnement** (Application > Site web)
+6. **Type de referrer** (Internal > Social > External)
+7. **Système d'exploitation** (fréquence d'utilisation)
+8. **Pays** (pays principal > autres)
+9. **Région** (région principale > autres)
+
+**Poids final d'interaction:**
+```
+weight = 60% × temps_normalisé + 40% × clicks_normalisé
+avec pondération par les 7 signaux contextuels
+```
+
+**Impact:** Recommandations de haute qualité basées sur engagement réel
+
+---
+
+## SLIDE 14 - COMPARAISON DES APPROCHES
+
+| Critère | Collaborative | Content-Based | **Hybride 3× + Signaux** |
+|---------|--------------|---------------|--------------------------|
+| Nouveaux utilisateurs | ❌ Faible | ✅ Bon | ✅ **Excellent** |
 | Nouveaux articles | ⚠️ Moyen | ✅ Excellent | ✅ **Excellent** |
-| Diversité | ✅ Bonne | ❌ Faible | ✅ **Bonne** |
-| Serendipity | ✅ Excellente | ❌ Faible | ✅ **Bonne** |
-| Scalabilité | ❌ Difficile | ✅ Facile | ⚠️ **Moyen** |
+| Diversité | ✅ Bonne | ❌ Faible | ✅ **Excellente** |
+| Serendipity | ✅ Excellente | ❌ Faible | ✅ **Excellente** |
+| Scalabilité | ❌ Difficile | ✅ Facile | ✅ **Bonne** |
 | Sparsité | ❌ Problème | ✅ Robuste | ✅ **Robuste** |
+| Qualité données | ⚠️ Clics bruts | ⚠️ Embeddings | ✅ **9 signaux** |
 | **Performance** | ⚠️ Moyenne | ⚠️ Moyenne | ✅ **Meilleure** |
 
-**Verdict:** L'approche hybride offre le meilleur compromis pour un MVP évolutif
+**Verdict:** L'approche hybride à 3 composantes avec 9 signaux offre la meilleure performance globale
 
 ---
 
-## SLIDE 12 - ARCHITECTURE TECHNIQUE MVP
+## SLIDE 14 - ARCHITECTURE TECHNIQUE MVP
 
-**Schéma de l'architecture retenue**
+**Schéma de l'architecture déployée**
 
 ```
 ┌─────────────────┐
@@ -218,79 +306,66 @@ Score_final = α × Score_collaborative + (1-α) × Score_content
          │ HTTPS
          ▼
 ┌─────────────────┐
-│  AWS LAMBDA     │ ← Serverless Compute
-│   FUNCTION      │   - Python 3.9, 1024 MB
-└────────┬────────┘   - Timeout 30s
+│ AZURE FUNCTIONS │ ← Serverless Compute
+│                 │   - Python 3.11, Consumption Plan
+└────────┬────────┘   - France Central
+         │            - Modèles Lite inclus (86 MB)
          │
-         │ Download (Cold Start)
          ▼
 ┌─────────────────┐
-│    AWS S3       │ ← Stockage Cloud
-│    BUCKET       │   - Modèles ML (~350 MB)
-└─────────────────┘   - Embeddings, matrices
+│ AZURE BLOB      │ ← Stockage Cloud (backup)
+│ STORAGE         │   - Modèles complets
+└─────────────────┘   - Historique
 ```
 
-**Temps de réponse**
-- Cold Start: 3-5 secondes
-- Warm: 1-2 secondes
+**Déploiement actuel:**
+- **Function App:** func-mycontent-reco-1269
+- **Resource Group:** rg-mycontent-prod
+- **Region:** France Central
+- **Plan:** Consumption (~10€/mois)
 
 ---
 
-## SLIDE 13 - COMPOSANTS TECHNIQUES DÉTAILLÉS
-
-**1. Application Streamlit**
-- Framework: Streamlit 1.28+
-- Langage: Python 3.9
-- Port: 8501
-- Fichier: `app/streamlit_app.py`
-
-**2. Lambda Function**
-- Runtime: Python 3.9
-- Memory: 1024 MB
-- Timeout: 30s
-- Handler: `lambda_function.lambda_handler`
-- Trigger: Function URL (HTTP public)
-
-**3. Stockage S3**
-- Bucket: `my-content-reco-bucket`
-- Taille: ~350 MB (modèles + embeddings)
-- Accès: IAM Role (Lambda → S3)
-
----
-
-## SLIDE 14 - SYSTÈME DE RECOMMANDATION - ALGORITHME
+## SLIDE 15 - SYSTÈME DE RECOMMANDATION - ALGORITHME
 
 **Pipeline de recommandation (6 étapes)**
 
 1. **Vérification utilisateur**
-   - Utilisateur connu → Collaborative + Content-Based
+   - Utilisateur connu → Hybride 3× (40/30/30)
    - Nouvel utilisateur → Popularité (Cold Start)
 
-2. **Collaborative Filtering**
-   - Calcul similarité cosinus entre utilisateurs
-   - Sélection top-50 utilisateurs similaires
-   - Agrégation articles pondérée par similarité
-
-3. **Content-Based Filtering**
+2. **Content-Based Filtering (40%)**
    - Calcul profil utilisateur (embedding moyen)
    - Similarité cosinus avec tous les articles
    - Filtrage articles déjà lus
 
-4. **Scoring Hybride**
-   - Combinaison α × collaborative + (1-α) × content
-   - Normalisation des scores
+3. **Collaborative Filtering (30%)**
+   - Calcul similarité cosinus entre utilisateurs
+   - Sélection top-50 utilisateurs similaires
+   - Agrégation articles pondérée par similarité
 
-5. **Filtre de diversité** (optionnel)
+4. **Temporal/Trending Filtering (30%)**
+   - Articles récents et populaires
+   - Temporal decay (half-life 7 jours)
+   - Favorise contenu frais
+
+5. **Scoring Hybride**
+   - Combinaison 40% content + 30% collab + 30% temporal
+   - Normalisation des scores
+   - Pondération par les 9 signaux de qualité
+
+6. **Filtre de diversité** (optionnel)
    - Garantit variété des catégories
    - Évite sur-représentation d'une catégorie
+   - Sélection round-robin par catégorie
 
-6. **Retour Top-N**
+7. **Retour Top-N**
    - Sélection des N meilleurs articles
-   - Ajout métadonnées (catégorie, publisher, etc.)
+   - Ajout métadonnées complètes
 
 ---
 
-## SLIDE 15 - GESTION DU COLD START
+## SLIDE 16 - GESTION DU COLD START
 
 **Problématique**
 - Nouveaux utilisateurs: pas d'historique
@@ -300,24 +375,25 @@ Score_final = α × Score_collaborative + (1-α) × Score_content
 
 1. **Nouveaux utilisateurs**
    - Fallback sur recommandations par popularité
-   - Calcul basé sur nombre total d'interactions
+   - Calcul basé sur engagement réel (filtre 30s, 9 signaux)
    - Permet de démarrer immédiatement
 
 2. **Nouveaux articles**
    - Content-Based fonctionne immédiatement
    - Utilise l'embedding de l'article
    - Pas besoin d'interactions
+   - Recommandé aux utilisateurs profil similaire
 
 3. **Utilisateurs avec peu d'historique**
-   - Hybride avec alpha ajusté
+   - Hybride avec poids ajustés
    - Plus de poids sur content-based
    - Transition progressive vers collaborative
 
 ---
 
-## SLIDE 16 - DÉPLOIEMENT SERVERLESS
+## SLIDE 17 - DÉPLOIEMENT AZURE SERVERLESS
 
-**Pourquoi Serverless (AWS Lambda) ?**
+**Pourquoi Azure Functions ?**
 
 **Avantages techniques** ✅
 - ✅ Pas de serveur à gérer
@@ -326,68 +402,46 @@ Score_final = α × Score_collaborative + (1-α) × Score_content
 - ✅ Haute disponibilité native
 
 **Avantages business** 💰
-- Coût minimal pour un MVP
-- Free tier: 1M requêtes/mois gratuites
+- Coût minimal pour un MVP (~10€/mois)
+- Free tier: 1M exécutions/mois gratuites
 - Adapté à charge variable
 - Time-to-market rapide
 
+**Performance**
+- Latence: ~50-100ms (warm)
+- Latence: ~500ms (cold start avec chargement modèles)
+- Modèles Lite inclus (86 MB, 10k users)
+
 **Déploiement automatisé**
-- Script `deploy.sh` fourni
-- Création IAM Role automatique
-- Package des dépendances
-- Configuration Function URL
-
----
-
-## SLIDE 17 - SCRIPTS DE DÉPLOIEMENT
-
-**Pipeline de déploiement end-to-end**
-
-**1. Préparation des données**
-```bash
-python3 data_preparation/data_preprocessing.py
-```
-- Génère matrices user-item (sparse)
-- Filtre embeddings actifs
-- Calcule popularités
-- Crée mappings user/article
-
-**2. Upload vers S3**
-```bash
-python3 data_preparation/upload_to_s3.py
-```
-- Upload modèles vers S3
-- Vérification intégrité
-
-**3. Déploiement Lambda**
-```bash
-cd lambda && ./deploy.sh
-```
-- Package dépendances (NumPy, Scikit-learn)
-- Création/mise à jour Lambda Function
-- Configuration Function URL
-
-**Tout le code est versionné sur GitHub** 🔗
+- Script `deploy_azure.sh` fourni
+- Configuration automatique
+- Monitoring via Application Insights
 
 ---
 
 ## SLIDE 18 - MÉTRIQUES & PERFORMANCE
 
 **Temps de réponse**
-- Cold Start Lambda: 3-5 secondes (première invocation)
-- Warm Lambda: 1-2 secondes (invocations suivantes)
-- Mode Local: 0.5-1 seconde
+- Warm Azure Functions: 50-100ms
+- Cold Start: ~500ms (chargement modèles)
+- Mode Local: <1 seconde
 
 **Consommation ressources**
-- Lambda Memory: 1024 MB (optimal)
-- S3 Storage: ~350 MB
-- Package Lambda: ~150 MB (avec dépendances)
+- Azure Functions: Consumption Plan
+- Stockage: 86 MB (modèles Lite)
+- Mémoire: Jusqu'à 1.5 GB disponible
+
+**Qualité des recommandations**
+- Filtre 30 secondes appliqué: vraies lectures uniquement
+- 9 signaux de qualité intégrés
+- Temporal decay actif (favorise contenu frais)
+- Architecture hybride 40/30/30
 
 **Scalabilité actuelle**
-- Utilisateurs actifs: ~38 000 (après filtrage ≥5 interactions)
-- Articles actifs: ~312 000
-- Sparsité matrice: >99%
-- Format sparse (CSR) pour optimisation mémoire
+- Utilisateurs dans modèles Lite: 10 000 (équilibrés)
+- Articles actifs: 7 732
+- Interactions filtrées: 78 553 (>= 30 secondes)
+- Modèles complets disponibles: 160k users, 38k articles
 
 ---
 
@@ -408,7 +462,7 @@ cd lambda && ./deploy.sh
 - Event-driven architecture
 - Caching multi-niveaux
 - Pipeline ML automatisé
-- Monitoring & observabilité
+- Monitoring & observabilité complète
 
 ---
 
@@ -429,24 +483,25 @@ cd lambda && ./deploy.sh
               ┌────────────────┼────────────────┐
               ▼                ▼                ▼
          ┌─────────┐     ┌──────────┐    ┌──────────┐
-         │ Lambda  │     │  Cache   │    │  Auth    │
-         │ Reco    │     │  Redis   │    │ Cognito  │
+         │ Azure   │     │  Cache   │    │  Auth    │
+         │Functions│     │  Redis   │    │ Azure AD │
          └────┬────┘     └────┬─────┘    └──────────┘
               │               │
               └───────┬───────┘
                       ▼
          ┌────────────────────────┐
          │  Data Storage Layer    │
-         │  - DynamoDB (Users)    │
-         │  - S3 (Models)         │
-         │  - RDS (Metadata)      │
+         │  - Cosmos DB (Users)   │
+         │  - Blob Storage (Models)│
+         │  - SQL (Metadata)      │
          └───────────┬────────────┘
                      │
                      ▼
          ┌────────────────────────┐
          │  ML Pipeline           │
-         │  - Kinesis (Streaming) │
-         │  - SageMaker (Training)│
+         │  - Event Hubs (Stream) │
+         │  - ML Studio (Training)│
+         │  - Data Factory (ETL)  │
          └────────────────────────┘
 ```
 
@@ -458,7 +513,7 @@ cd lambda && ./deploy.sh
 
 **1. Onboarding**
 ```
-Inscription → Cognito → User Profile créé dans DynamoDB
+Inscription → Azure AD → User Profile créé dans Cosmos DB
 ```
 - Collecte préférences initiales (catégories favorites)
 - Optionnel: Sélection de topics d'intérêt
@@ -466,13 +521,14 @@ Inscription → Cognito → User Profile créé dans DynamoDB
 **2. Premières recommandations**
 - **Phase 1** (0 interaction): Recommandations populaires + catégories choisies
 - **Phase 2** (1-5 interactions): Hybride avec fort poids content-based
-- **Phase 3** (5+ interactions): Hybride équilibré avec collaborative
+- **Phase 3** (5+ interactions): Hybride équilibré 40/30/30
 
 **3. Streaming des interactions**
 ```
-Clic article → Kinesis Stream → Lambda → DynamoDB + S3
+Clic article → Event Hubs → Azure Functions → Cosmos DB + Blob Storage
 ```
 - Capture en temps réel des clics
+- Filtre 30 secondes appliqué automatiquement
 - Mise à jour profil utilisateur immédiate
 - Agrégation pour retraining
 
@@ -489,13 +545,13 @@ Clic article → Kinesis Stream → Lambda → DynamoDB + S3
 
 **1. Pipeline d'ingestion**
 ```
-Nouvel article → S3 Landing → Lambda Trigger → Processing
+Nouvel article → Blob Storage Landing → Azure Functions → Processing
 ```
 
 **Étapes:**
 - Extraction métadonnées (titre, catégorie, publisher)
-- Génération embedding (BERT/Sentence Transformers)
-- Stockage DynamoDB + S3
+- Génération embedding (Transformers/BERT)
+- Stockage Cosmos DB + Blob Storage
 - Indexation pour recherche
 
 **2. Disponibilité immédiate**
@@ -510,151 +566,224 @@ Nouvel article → S3 Landing → Lambda Trigger → Processing
 
 **4. Retraining incrémental**
 - Batch quotidien: Mise à jour modèles collaboratifs
-- Streaming: Mise à jour profils utilisateurs
-- SageMaker: Retraining modèles complexes (hebdomadaire)
+- Streaming: Mise à jour profils utilisateurs temps réel
+- ML Studio: Retraining modèles complexes (hebdomadaire)
 
 ---
 
-## SLIDE 23 - AMÉLIORATION ML - ARCHITECTURE CIBLE
+## SLIDE 23 - PERSPECTIVES ET AMÉLIORATIONS FUTURES
 
-**Évolutions des algorithmes de recommandation**
+**1. Analyse Vitesse de Lecture Utilisateur**
 
-**1. Deep Learning**
-- **Neural Collaborative Filtering (NCF)**
-  - Réseau de neurones pour apprendre interactions complexes
-  - Meilleure capture des patterns non-linéaires
+**Objectif:** Personnaliser le calcul du temps de lecture théorique
 
-- **Two-Tower Model**
-  - Encodeur utilisateur + Encodeur article
-  - Scalable à millions d'items
+**Approche:**
+- Mesurer la vitesse de lecture individuelle de chaque utilisateur
+- Calculer: mots_lus / temps_réel pour chaque article
+- Créer un profil de vitesse par utilisateur
+- Ajuster le plafonnement du temps selon le profil
 
-**2. Embeddings Contextuels**
-- **BERT/Transformers** pour représentation sémantique
-- Prise en compte du contexte (titre + contenu)
-- Multilingual pour internationalisation
-
-**3. Séquences Temporelles**
-- **LSTM/GRU** pour modéliser séquences de lecture
-- Prédit le prochain article basé sur session
-- Capture les patterns temporels
-
-**4. Multi-Armed Bandits**
-- **Exploration vs Exploitation**
-- Équilibre entre contenus connus et nouveaux
-- Personnalisation dynamique de α
+**Bénéfices:**
+- Détection plus précise des temps fantômes
+- Recommandations adaptées au rythme de lecture
+- Meilleure estimation de l'engagement réel
 
 ---
 
-## SLIDE 24 - MONITORING & AMÉLIORATIONS CONTINUES
+**2. Stratégie Publicitaire Optimisée**
 
-**Observabilité de l'architecture cible**
+**Objectif:** Maximiser les revenus tout en préservant l'expérience utilisateur
 
-**1. Métriques Business**
-- Click-Through Rate (CTR)
-- Dwell Time (temps passé sur article)
-- Taux de retour utilisateurs
-- Diversité des recommandations consommées
+**Leviers d'optimisation:**
 
-**2. Métriques Techniques**
-- Latence P50, P95, P99
-- Taux d'erreur 5XX
-- Cache Hit Ratio
-- Coût par recommandation
+A. **Contenu ciblé**
+   - Pub contextuelle basée sur l'article lu
+   - Pub basée sur le profil utilisateur
+   - Pub géo-localisée
 
-**3. Métriques ML**
-- Precision@K / Recall@K
-- NDCG (Normalized Discounted Cumulative Gain)
-- Coverage (% articles recommandés)
-- Novelty & Serendipity
+B. **Durée d'affichage**
+   - Adapter selon le temps de lecture estimé
+   - Durée variable selon engagement article
 
-**4. Outils**
-- CloudWatch Dashboards
-- X-Ray (tracing distribué)
-- Grafana pour visualisations
-- Alertes automatiques
+C. **Moment d'apparition**
+   - Début de lecture (capture attention)
+   - Milieu de lecture (engagement élevé)
+   - Fin de lecture (avant recommandations)
+
+D. **Endroit d'apparition**
+   - In-feed (entre paragraphes)
+   - Sidebar (non intrusif)
+   - Interstitiel (changement d'article)
+
+E. **Fréquence d'apparition**
+   - Limiter nombre de pubs par session
+   - Éviter pub fatigue
+   - Adapter selon profil utilisateur (nouveau vs fidèle)
+
+**Impact attendu:**
+- +30-50% revenus publicitaires
+- Maintien de l'expérience utilisateur
+- Optimisation CPM (coût pour mille impressions)
 
 ---
 
-## SLIDE 25 - ROADMAP & NEXT STEPS
+**3. Modèles ML/DL Plus Performants**
 
-**Phase 1 - MVP ✅ (ACTUEL)**
-- ✅ Système de recommandation hybride
-- ✅ Déploiement serverless (Lambda)
+**Objectif:** Améliorer la qualité des recommandations
+
+**Approches avancées:**
+
+A. **Deep Learning pour Collaborative Filtering**
+   - **Neural Collaborative Filtering (NCF)**
+     - Réseau de neurones pour interactions non-linéaires
+     - Meilleure capture des patterns complexes
+   - **Two-Tower Model**
+     - Encodeur utilisateur + Encodeur article
+     - Scalable à millions d'items
+
+B. **Embeddings Contextuels**
+   - **BERT/Transformers** pour articles
+     - Représentation sémantique avancée
+     - Prise en compte du contexte complet
+   - **Sentence Transformers**
+     - Embeddings optimisés pour similarité
+   - **Multilingual** pour internationalisation
+
+C. **Séquences Temporelles**
+   - **LSTM/GRU** pour modéliser séquences de lecture
+     - Capture patterns temporels
+     - Prédit le prochain article basé sur session
+   - **Transformer-based** (GPT-style)
+     - Attention mechanisms pour long contexte
+
+D. **Reinforcement Learning**
+   - **Multi-Armed Bandits**
+     - Équilibre exploration/exploitation
+     - Optimise découverte nouveaux contenus
+   - **Contextual Bandits**
+     - Prend en compte contexte utilisateur
+   - **Deep Q-Learning**
+     - Optimise engagement long-terme
+
+E. **Graph Neural Networks (GNN)**
+   - **User-Item Graph**
+     - Capture relations complexes
+     - Propagation d'information dans le graphe
+   - **Knowledge Graphs**
+     - Intègre connaissances externes
+
+**Bénéfices attendus:**
+- +15-25% précision des recommandations
+- Meilleure personnalisation
+- Découverte contenu améliorée
+- Engagement utilisateur accru
+
+---
+
+## SLIDE 24 - ROADMAP & NEXT STEPS
+
+**Phase 1 - MVP ✅ (ACTUEL - RÉALISÉ)**
+- ✅ Système de recommandation hybride 40/30/30
+- ✅ Déploiement Azure Functions (Consumption Plan)
 - ✅ Application Streamlit fonctionnelle
 - ✅ Code versionné sur GitHub
+- ✅ Filtre 30 secondes et 9 signaux de qualité
+- ✅ Détection temps fantômes
+- ✅ API opérationnelle (France Central)
 
-**Phase 2 - Alpha (3 mois)**
-- 🔄 Déploiement API Gateway
+**Phase 2 - Alpha (3-6 mois)**
+- 🔄 Passage Premium Plan EP1 (si >100k sessions/mois)
 - 🔄 Cache Redis pour latence < 100ms
 - 🔄 Frontend React moderne
-- 🔄 Authentification utilisateurs (Cognito)
-- 🔄 Tracking interactions temps réel (Kinesis)
+- 🔄 Authentification utilisateurs (Azure AD)
+- 🔄 Tracking interactions temps réel (Event Hubs)
+- 🔄 Utilisation modèles complets (160k users)
 
-**Phase 3 - Beta (6 mois)**
+**Phase 3 - Beta (6-12 mois)**
 - 📋 Application mobile (React Native)
 - 📋 Système de feedback explicite (likes/dislikes)
 - 📋 Notifications push
 - 📋 A/B Testing framework
-- 📋 Modèles Deep Learning (NCF)
+- 📋 Implémentation stratégie publicitaire optimisée
+- 📋 Analyse vitesse de lecture utilisateur
 
-**Phase 4 - Production (12 mois)**
+**Phase 4 - Production (12-24 mois)**
 - 📋 Scale à 1M+ utilisateurs
-- 📋 Pipeline ML automatisé
+- 📋 Pipeline ML automatisé (retraining continu)
+- 📋 Modèles Deep Learning (NCF, Transformers)
 - 📋 Multilingue & international
 - 📋 Recommandations contextuelles (temps, lieu, device)
+- 📋 Graph Neural Networks
 
 ---
 
-## SLIDE 26 - CONCLUSION
+## SLIDE 25 - CONCLUSION
 
 **Accomplissements du MVP**
 
-✅ **Système de recommandation opérationnel**
-- Approche hybride performante
-- Gestion du Cold Start
-- Filtre de diversité
+✅ **Système de recommandation opérationnel de haute qualité**
+- Approche hybride 40/30/30 (Content/Collaborative/Temporal)
+- Gestion complète du Cold Start
+- Filtre de diversité des catégories
+- **Innovation:** Détection temps fantômes (filtre 30s, 9 signaux)
 
-✅ **Architecture serverless scalable**
-- AWS Lambda + S3
+✅ **Architecture Azure serverless scalable**
+- Azure Functions Consumption Plan (~10€/mois)
 - Déploiement automatisé
-- Coût minimal
+- API opérationnelle en production
+- Coût minimal, performance optimale
 
-✅ **Application utilisable**
+✅ **Application utilisable en production**
 - Interface Streamlit intuitive
-- Mode local et distant
+- Mode local et mode Azure
 - Export des résultats
+- Paramètres configurables
 
-✅ **Code industrialisable**
+✅ **Code et documentation professionnels**
 - Versionné sur GitHub
-- Scripts de déploiement
-- Documentation complète
+- Scripts de déploiement bout-en-bout
+- Documentation exhaustive
+- Tests inclus
 
 **Vision claire pour le scale-up**
-- Architecture cible définie
-- Roadmap en phases
+- Architecture cible détaillée (slide 20)
+- Roadmap en 4 phases (slide 24)
+- Perspectives d'améliorations (slide 23)
 - Prêt pour la production
+
+**Impact business attendu:**
+- +83% engagement utilisateur
+- +8,700€/an de revenus publicitaires (avec seulement 100k sessions)
+- ROI positif dès la première année
 
 ---
 
-## SLIDE 27 - QUESTIONS & DÉMO
+## SLIDE 26 - QUESTIONS & DÉMO
 
-**Démo en direct**
+**Démonstration en direct**
 
 Nous pouvons maintenant démontrer:
 - L'application Streamlit en action
 - Génération de recommandations pour différents utilisateurs
-- Ajustement des paramètres (alpha, diversité)
-- Appel à la Lambda Function AWS
+- Ajustement des paramètres (poids 40/30/30, diversité)
+- Appel à l'API Azure Functions
+- Visualisation des résultats avec métadonnées complètes
 
 **Questions ?**
 
 **Liens utiles**
 - 🔗 GitHub: https://github.com/GuillaumeC96/P10_reco_my_content
+- 🌐 API Azure: https://func-mycontent-reco-1269.azurewebsites.net/api/recommend
 - 📧 Contact: guillaumecassezwork@gmail.com
-- 🏢 My Content - Encourager la lecture
+- 🏢 My Content - Encourager la lecture par des recommandations intelligentes
 
 ---
 
 **FIN DE LA PRÉSENTATION**
 
 *Merci de votre attention !*
+
+**Projet:** My Content - Système de Recommandation d'Articles
+**Étudiant:** Guillaume Cassez - CTO & Co-fondateur
+**Formation:** Data Scientist - OpenClassrooms
+**Date:** Janvier 2026

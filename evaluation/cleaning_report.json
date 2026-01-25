@@ -1,0 +1,18 @@
+{
+  "total_clicks": 2988181,
+  "valid_interactions": 1941746,
+  "cleaned_interactions": 1939530,
+  "cleaned_pct": 99.88587590755948,
+  "unique_user_article_pairs": 1922443,
+  "time_stats": {
+    "mean_seconds": 125.40287308432721,
+    "median_seconds": 119.4,
+    "mean_minutes": 2.090047884738787,
+    "median_minutes": 1.99,
+    "total_hours": 67639.03533333333
+  },
+  "files": {
+    "interactions": "/home/ser/Bureau/P10_reco_new/models/interactions_cleaned.csv",
+    "stats": "/home/ser/Bureau/P10_reco_new/models/interaction_stats_cleaned.csv"
+  }
+}

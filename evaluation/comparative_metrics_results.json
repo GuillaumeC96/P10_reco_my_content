@@ -1,0 +1,29 @@
+{
+  "metric1_engagement_ratio": {
+    "name": "Ratio d'Engagement",
+    "baseline_pct": 54.05828816729417,
+    "with_reco_pct": 98.92666734614834,
+    "gain_pct": 44.86837917885416,
+    "gain_relative_pct": 83.0
+  },
+  "metric2_reading_rate": {
+    "name": "Taux de Lecture",
+    "baseline_rate": 1.3608426125337225,
+    "baseline_interest_score": 0.7682770476087962,
+    "baseline_articles_per_user": 1.699699323477825,
+    "hypothesis1_same_rate": {
+      "rate": 1.3608426125337225,
+      "articles_per_user": 3.11044976196442,
+      "gain_pct": 83.0
+    },
+    "hypothesis2_improved_rate": {
+      "rate": 1.633011135040467,
+      "interest_score": 0.9219324571305554,
+      "articles_per_user": 3.11044976196442,
+      "total_engagement_gain_pct": 119.60000000000002
+    }
+  },
+  "correlation": 0.36215139797011514,
+  "num_users": 7982,
+  "reading_speed_wpm": 200
+}

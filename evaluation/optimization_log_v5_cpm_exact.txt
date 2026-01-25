@@ -1,0 +1,1528 @@
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+================================================================================
+TUNING PARALLÉLISÉ + EARLY STOPPING - 12 PARAMÈTRES
+================================================================================
+
+Configuration (adapté Ryzen 7 Pro / 30GB RAM):
+  - 30 trials (optimisation bayésienne)
+  - 50 users max par trial
+  - 12 workers parallèles
+  - Early stopping: phase1 < 0.05, phase2 < 0.08
+  - Baseline: 0.2124
+
+Chargement des données...
+✓ Stats chargés: 2950710 interactions
+Chargement des utilisateurs de validation...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 4011374.20it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+✓ 50 utilisateurs sélectionnés
+
+Création du pool de 12 workers...
+[I 2025-12-27 16:34:37,072] A new study created in memory with name: no-name-d78c56fd-19f3-4694-964e-3f664dc90142
+✓ Pool créé
+
+================================================================================
+OPTIMISATION EN COURS
+================================================================================
+  0%|          | 0/30 [00:00<?, ?it/s]INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:improved_tuning:Chargement du moteur de recommandation...
+INFO:recommendation_engine:Chargement des modèles...
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice user-item (counts) chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Matrice pondérée chargée: (160377, 37891)
+INFO:recommendation_engine:  Weighted values: min=0.265, max=1.000, mean=0.396
+INFO:recommendation_engine:Mappings chargés: 160377 users
+INFO:recommendation_engine:Popularité chargée: 46033 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Profils utilisateurs chargés: 322897 users
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Embeddings chargés: 37891 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Métadonnées chargées: 364047 articles
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:recommendation_engine:Index créés: 364047 timestamps, 364047 catégories
+INFO:recommendation_engine:✓ Tous les modèles chargés avec succès
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  92%|█████████▏| 297166/322897 [00:00<00:00, 2971499.89it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3137909.88it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3428487.98it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs:  74%|███████▍  | 240292/322897 [00:00<00:00, 2402750.43it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3293399.43it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 2781926.74it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3464791.71it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3361124.58it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3367308.67it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3326083.98it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 4086490.03it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]INFO:improved_tuning:✓ Moteur chargé
+INFO:improved_tuning:Création du split temporel (train: 80%, val: 20%)...
+Split des utilisateurs:   0%|          | 0/322897 [00:00<?, ?it/s]Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3960023.91it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 3965055.59it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+Split des utilisateurs: 100%|██████████| 322897/322897 [00:00<00:00, 4106003.13it/s]
+INFO:improved_tuning:✓ Split créé: 52613 utilisateurs
+INFO:improved_tuning:  - Train: 1254101 interactions
+INFO:improved_tuning:  - Val: 339319 interactions
+INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.35
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                        0%|          | 0/30 [06:32<?, ?it/s]Best trial: 0. Best value: 0:   0%|          | 0/30 [06:32<?, ?it/s]Best trial: 0. Best value: 0:   3%|▎         | 1/30 [06:32<3:09:52, 392.84s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                               Best trial: 0. Best value: 0:   3%|▎         | 1/30 [12:54<3:09:52, 392.84s/it]Best trial: 0. Best value: 0:   3%|▎         | 1/30 [12:54<3:09:52, 392.84s/it]Best trial: 0. Best value: 0:   7%|▋         | 2/30 [12:54<3:00:14, 386.24s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                               Best trial: 0. Best value: 0:   7%|▋         | 2/30 [18:57<3:00:14, 386.24s/it]Best trial: 0. Best value: 0:   7%|▋         | 2/30 [18:57<3:00:14, 386.24s/it]Best trial: 0. Best value: 0:  10%|█         | 3/30 [18:57<2:49:01, 375.59s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.46, Trend: 0.27
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                               Best trial: 0. Best value: 0:  10%|█         | 3/30 [24:55<2:49:01, 375.59s/it]Best trial: 0. Best value: 0:  10%|█         | 3/30 [24:55<2:49:01, 375.59s/it]Best trial: 0. Best value: 0:  13%|█▎        | 4/30 [24:55<2:39:46, 368.72s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                               Best trial: 0. Best value: 0:  13%|█▎        | 4/30 [30:54<2:39:46, 368.72s/it]Best trial: 0. Best value: 0:  13%|█▎        | 4/30 [30:54<2:39:46, 368.72s/it]Best trial: 0. Best value: 0:  17%|█▋        | 5/30 [30:54<2:32:07, 365.11s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.48, Trend: 0.18
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                               Best trial: 0. Best value: 0:  17%|█▋        | 5/30 [36:53<2:32:07, 365.11s/it]Best trial: 0. Best value: 0:  17%|█▋        | 5/30 [36:53<2:32:07, 365.11s/it]Best trial: 0. Best value: 0:  20%|██        | 6/30 [36:53<2:25:12, 363.00s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.50, Trend: 0.19
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                               Best trial: 0. Best value: 0:  20%|██        | 6/30 [42:53<2:25:12, 363.00s/it]Best trial: 0. Best value: 0:  20%|██        | 6/30 [42:53<2:25:12, 363.00s/it]Best trial: 0. Best value: 0:  23%|██▎       | 7/30 [42:53<2:18:47, 362.06s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.35, Content: 0.41, Trend: 0.25
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                               Best trial: 0. Best value: 0:  23%|██▎       | 7/30 [48:50<2:18:47, 362.06s/it]Best trial: 0. Best value: 0:  23%|██▎       | 7/30 [48:50<2:18:47, 362.06s/it]Best trial: 0. Best value: 0:  27%|██▋       | 8/30 [48:50<2:12:11, 360.54s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.37, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                               Best trial: 0. Best value: 0:  27%|██▋       | 8/30 [54:46<2:12:11, 360.54s/it]Best trial: 0. Best value: 0:  27%|██▋       | 8/30 [54:46<2:12:11, 360.54s/it]Best trial: 0. Best value: 0:  30%|███       | 9/30 [54:46<2:05:43, 359.20s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.39, Content: 0.35, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                               Best trial: 0. Best value: 0:  30%|███       | 9/30 [1:00:44<2:05:43, 359.20s/it]Best trial: 0. Best value: 0:  30%|███       | 9/30 [1:00:44<2:05:43, 359.20s/it]Best trial: 0. Best value: 0:  33%|███▎      | 10/30 [1:00:44<1:59:34, 358.71s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.21, Content: 0.45, Trend: 0.34
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  Best trial: 0. Best value: 0:  33%|███▎      | 10/30 [1:06:43<1:59:34, 358.71s/it]Best trial: 0. Best value: 0:  33%|███▎      | 10/30 [1:06:43<1:59:34, 358.71s/it]Best trial: 0. Best value: 0:  37%|███▋      | 11/30 [1:06:43<1:53:37, 358.81s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.40, Trend: 0.29
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  Best trial: 0. Best value: 0:  37%|███▋      | 11/30 [1:12:42<1:53:37, 358.81s/it]Best trial: 0. Best value: 0:  37%|███▋      | 11/30 [1:12:42<1:53:37, 358.81s/it]Best trial: 0. Best value: 0:  40%|████      | 12/30 [1:12:42<1:47:39, 358.86s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.42, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  Best trial: 0. Best value: 0:  40%|████      | 12/30 [1:18:43<1:47:39, 358.86s/it]Best trial: 0. Best value: 0:  40%|████      | 12/30 [1:18:43<1:47:39, 358.86s/it]Best trial: 0. Best value: 0:  43%|████▎     | 13/30 [1:18:43<1:41:49, 359.41s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  Best trial: 0. Best value: 0:  43%|████▎     | 13/30 [1:24:41<1:41:49, 359.41s/it]Best trial: 0. Best value: 0:  43%|████▎     | 13/30 [1:24:41<1:41:49, 359.41s/it]Best trial: 0. Best value: 0:  47%|████▋     | 14/30 [1:24:41<1:35:46, 359.17s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.42, Trend: 0.24
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  Best trial: 0. Best value: 0:  47%|████▋     | 14/30 [1:30:29<1:35:46, 359.17s/it]Best trial: 0. Best value: 0:  47%|████▋     | 14/30 [1:30:29<1:35:46, 359.17s/it]Best trial: 0. Best value: 0:  50%|█████     | 15/30 [1:30:29<1:28:54, 355.66s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  Best trial: 0. Best value: 0:  50%|█████     | 15/30 [1:36:27<1:28:54, 355.66s/it]Best trial: 0. Best value: 0:  50%|█████     | 15/30 [1:36:27<1:28:54, 355.66s/it]Best trial: 0. Best value: 0:  53%|█████▎    | 16/30 [1:36:27<1:23:10, 356.47s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.44, Trend: 0.24
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  [I 2025-12-27 16:41:09,910] Trial 0 finished with value: 0.0 and parameters: {'w_time': 0.4510890415965769, 'w_clicks': 0.4452142919229749, 'w_session': 0.19639878836228103, 'w_device': 0.14782560294561475, 'w_env': 0.02404167763981929, 'w_referrer': 0.01935967122017216, 'w_os': 0.015227525095137952, 'w_country': 0.08795585311974417, 'w_region': 0.0641003510568888, 'content': 0.44161451555920905, 'collab': 0.2041168988591605, 'temporal': 0.34398197043239886}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 16:47:31,528] Trial 1 finished with value: 0.0 and parameters: {'w_time': 0.6113549242801477, 'w_clicks': 0.22370173320348286, 'w_session': 0.08636499344142012, 'w_device': 0.09384258628094641, 'w_env': 0.0373818018663584, 'w_referrer': 0.041485385897934275, 'w_os': 0.048875051677790424, 'w_country': 0.036210622617823776, 'w_region': 0.06506676052501416, 'content': 0.32789877213040836, 'collab': 0.2584289297070437, 'temporal': 0.22327236865873834}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 16:53:34,455] Trial 2 finished with value: 0.0 and parameters: {'w_time': 0.47962449447596256, 'w_clicks': 0.3955527884179041, 'w_session': 0.08993475643167195, 'w_device': 0.1368504769937695, 'w_env': 0.06331731119758383, 'w_referrer': 0.012787024763199864, 'w_os': 0.06467903667112945, 'w_country': 0.02534717113185624, 'w_region': 0.015854643368675158, 'content': 0.48977710745066666, 'collab': 0.3931264066149119, 'temporal': 0.3116794696232922}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 16:59:32,627] Trial 3 finished with value: 0.0 and parameters: {'w_time': 0.4266148192106798, 'w_clicks': 0.18930163420191518, 'w_session': 0.1868466053024314, 'w_device': 0.1272198241861482, 'w_env': 0.020983441136030095, 'w_referrer': 0.039710614606676214, 'w_os': 0.013094966900369657, 'w_country': 0.09183883618709039, 'w_region': 0.03329019834400153, 'content': 0.4325044568707964, 'collab': 0.2623422152178822, 'temporal': 0.25401360423556213}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:05:31,335] Trial 4 finished with value: 0.0 and parameters: {'w_time': 0.511348597770148, 'w_clicks': 0.21545633665765812, 'w_session': 0.24391692555291172, 'w_device': 0.1707672670369449, 'w_env': 0.09455490474077703, 'w_referrer': 0.06368964102565894, 'w_os': 0.06381099809299767, 'w_country': 0.09296868115208053, 'w_region': 0.017964325184672756, 'content': 0.33919657248382906, 'collab': 0.20904545778210762, 'temporal': 0.21506606615265286}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:11:30,253] Trial 5 finished with value: 0.0 and parameters: {'w_time': 0.4560370513913187, 'w_clicks': 0.2414047095321688, 'w_session': 0.21574750183038588, 'w_device': 0.11637793247016662, 'w_env': 0.03528410587186427, 'w_referrer': 0.04256176498949491, 'w_os': 0.02268318024772864, 'w_country': 0.08219772826786358, 'w_region': 0.016709557931179377, 'content': 0.49737738732010345, 'collab': 0.3544489538593315, 'temporal': 0.18974313630683448}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:17:30,387] Trial 6 finished with value: 0.0 and parameters: {'w_time': 0.32193274099326086, 'w_clicks': 0.40463842853645027, 'w_session': 0.19137146876952343, 'w_device': 0.16477093184532837, 'w_env': 0.07941433120173512, 'w_referrer': 0.014442679104045422, 'w_os': 0.042261915568984544, 'w_country': 0.020428215357261678, 'w_region': 0.08767930832880343, 'content': 0.4246596253655116, 'collab': 0.26617960497052984, 'temporal': 0.16271167005720472}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:23:27,654] Trial 7 finished with value: 0.0 and parameters: {'w_time': 0.42884381260048177, 'w_clicks': 0.2575549966080241, 'w_session': 0.19592123566761283, 'w_device': 0.1528824712761777, 'w_env': 0.0898491468318694, 'w_referrer': 0.03833289550971696, 'w_os': 0.020763482134447155, 'w_country': 0.07419203085006955, 'w_region': 0.07847065437552077, 'content': 0.41225543951389926, 'collab': 0.35419343599091224, 'temporal': 0.24875911927287814}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:29:23,902] Trial 8 finished with value: 0.0 and parameters: {'w_time': 0.5029564902836979, 'w_clicks': 0.28826230550756493, 'w_session': 0.05508382534881904, 'w_device': 0.08402588550912958, 'w_env': 0.012828626711806084, 'w_referrer': 0.04818462467582683, 'w_os': 0.038292038296869405, 'w_country': 0.055771362204823254, 'w_region': 0.09168098265334837, 'content': 0.349858445829775, 'collab': 0.282076584607126, 'temporal': 0.30111022770860973}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:35:21,536] Trial 9 finished with value: 0.0 and parameters: {'w_time': 0.4000793579220679, 'w_clicks': 0.1830939729486379, 'w_session': 0.10795029058275361, 'w_device': 0.09095876734302058, 'w_env': 0.09367278871083158, 'w_referrer': 0.058487222773865026, 'w_os': 0.06700633808593812, 'w_country': 0.0884314531168946, 'w_region': 0.0823304869209203, 'content': 0.33731401177720716, 'collab': 0.3785117996979956, 'temporal': 0.2578684483831301}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:41:20,562] Trial 10 finished with value: 0.0 and parameters: {'w_time': 0.5920329940410227, 'w_clicks': 0.43985859998356674, 'w_session': 0.14246216952188018, 'w_device': 0.19119774444853233, 'w_env': 0.04580142851305691, 'w_referrer': 0.02654042067728694, 'w_os': 0.09637936713508782, 'w_country': 0.06610388667665189, 'w_region': 0.04893848683344089, 'content': 0.4476811089450042, 'collab': 0.20539829516721395, 'temporal': 0.33916194399474264}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:47:19,538] Trial 11 finished with value: 0.0 and parameters: {'w_time': 0.6526084094078722, 'w_clicks': 0.32068727921064705, 'w_session': 0.14637926593266595, 'w_device': 0.10929645036318526, 'w_env': 0.02956216072879267, 'w_referrer': 0.026778356437258517, 'w_os': 0.08402176455408672, 'w_country': 0.04349117479466885, 'w_region': 0.06333145845851498, 'content': 0.3026419260115482, 'collab': 0.23931696118726747, 'temporal': 0.22067922766539214}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:53:20,202] Trial 12 finished with value: 0.0 and parameters: {'w_time': 0.5654069083878159, 'w_clicks': 0.34380198741842366, 'w_session': 0.051297347109612444, 'w_device': 0.07262267242033027, 'w_env': 0.05605579258466853, 'w_referrer': 0.028090272094323056, 'w_os': 0.039426172213389316, 'w_country': 0.038895715094604544, 'w_region': 0.062490443856969495, 'content': 0.38053907993256914, 'collab': 0.23367084433030294, 'temporal': 0.2884457505864743}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 17:59:18,824] Trial 13 finished with value: 0.0 and parameters: {'w_time': 0.6609763137368425, 'w_clicks': 0.44960138381963666, 'w_session': 0.12790939197394113, 'w_device': 0.1420007212772065, 'w_env': 0.04009024784657159, 'w_referrer': 0.05200546917390115, 'w_os': 0.05139677437450434, 'w_country': 0.036481744039860944, 'w_region': 0.04768055098370605, 'content': 0.4609662796727264, 'collab': 0.315913209893213, 'temporal': 0.3438539704097436}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 18:05:06,361] Trial 14 finished with value: 0.0 and parameters: {'w_time': 0.5702961053550202, 'w_clicks': 0.35301741690755645, 'w_session': 0.1691996781019619, 'w_device': 0.09975649801232095, 'w_env': 0.01044269581396009, 'w_referrer': 0.033465654820609335, 'w_os': 0.030908713514295385, 'w_country': 0.011882220983506352, 'w_region': 0.07059497398893132, 'content': 0.3870937300663579, 'collab': 0.3125025714050683, 'temporal': 0.2180664599694172}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 18:11:04,718] Trial 15 finished with value: 0.0 and parameters: {'w_time': 0.34050680731190364, 'w_clicks': 0.2766307584359159, 'w_session': 0.08451074239169717, 'w_device': 0.18952308319022276, 'w_env': 0.024816227735817785, 'w_referrer': 0.019600376102830108, 'w_os': 0.050719461766105166, 'w_country': 0.055674258772542104, 'w_region': 0.09951359921737987, 'content': 0.36406794705158335, 'collab': 0.24339310650507917, 'temporal': 0.27860138319311256}. Best is trial 0 with value: 0.0.
+Best trial: 0. Best value: 0:  53%|█████▎    | 16/30 [1:42:28<1:23:10, 356.47s/it]Best trial: 0. Best value: 0:  53%|█████▎    | 16/30 [1:42:28<1:23:10, 356.47s/it]Best trial: 0. Best value: 0:  57%|█████▋    | 17/30 [1:42:28<1:17:29, 357.66s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.31, Content: 0.49, Trend: 0.20
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  Best trial: 0. Best value: 0:  57%|█████▋    | 17/30 [1:48:26<1:17:29, 357.66s/it]Best trial: 0. Best value: 0:  57%|█████▋    | 17/30 [1:48:26<1:17:29, 357.66s/it]Best trial: 0. Best value: 0:  60%|██████    | 18/30 [1:48:26<1:11:34, 357.89s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.41, Trend: 0.33
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  Best trial: 0. Best value: 0:  60%|██████    | 18/30 [1:54:22<1:11:34, 357.89s/it]Best trial: 0. Best value: 0:  60%|██████    | 18/30 [1:54:22<1:11:34, 357.89s/it]Best trial: 0. Best value: 0:  63%|██████▎   | 19/30 [1:54:22<1:05:31, 357.37s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.41, Trend: 0.30
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                  Best trial: 0. Best value: 0:  63%|██████▎   | 19/30 [2:00:18<1:05:31, 357.37s/it]Best trial: 0. Best value: 0:  63%|██████▎   | 19/30 [2:00:18<1:05:31, 357.37s/it]Best trial: 0. Best value: 0:  67%|██████▋   | 20/30 [2:00:18<59:29, 356.91s/it]  INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.44, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  67%|██████▋   | 20/30 [2:06:16<59:29, 356.91s/it]Best trial: 0. Best value: 0:  67%|██████▋   | 20/30 [2:06:16<59:29, 356.91s/it]Best trial: 0. Best value: 0:  70%|███████   | 21/30 [2:06:16<53:34, 357.12s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.32, Content: 0.41, Trend: 0.26
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  70%|███████   | 21/30 [2:12:15<53:34, 357.12s/it]Best trial: 0. Best value: 0:  70%|███████   | 21/30 [2:12:15<53:34, 357.12s/it]Best trial: 0. Best value: 0:  73%|███████▎  | 22/30 [2:12:15<47:42, 357.78s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.30, Content: 0.42, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  73%|███████▎  | 22/30 [2:18:12<47:42, 357.78s/it]Best trial: 0. Best value: 0:  73%|███████▎  | 22/30 [2:18:12<47:42, 357.78s/it]Best trial: 0. Best value: 0:  77%|███████▋  | 23/30 [2:18:12<41:43, 357.67s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.43, Trend: 0.31
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  77%|███████▋  | 23/30 [2:24:10<41:43, 357.67s/it]Best trial: 0. Best value: 0:  77%|███████▋  | 23/30 [2:24:10<41:43, 357.67s/it]Best trial: 0. Best value: 0:  80%|████████  | 24/30 [2:24:10<35:45, 357.58s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.33, Content: 0.40, Trend: 0.27
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  80%|████████  | 24/30 [2:30:07<35:45, 357.58s/it]Best trial: 0. Best value: 0:  80%|████████  | 24/30 [2:30:07<35:45, 357.58s/it]Best trial: 0. Best value: 0:  83%|████████▎ | 25/30 [2:30:07<29:48, 357.60s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.27, Content: 0.41, Trend: 0.32
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  83%|████████▎ | 25/30 [2:36:07<29:48, 357.60s/it]Best trial: 0. Best value: 0:  83%|████████▎ | 25/30 [2:36:07<29:48, 357.60s/it]Best trial: 0. Best value: 0:  87%|████████▋ | 26/30 [2:36:07<23:52, 358.11s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.48, Trend: 0.25
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  87%|████████▋ | 26/30 [2:42:06<23:52, 358.11s/it]Best trial: 0. Best value: 0:  87%|████████▋ | 26/30 [2:42:06<23:52, 358.11s/it]Best trial: 0. Best value: 0:  90%|█████████ | 27/30 [2:42:06<17:55, 358.51s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.26, Content: 0.46, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  90%|█████████ | 27/30 [2:48:04<17:55, 358.51s/it]Best trial: 0. Best value: 0:  90%|█████████ | 27/30 [2:48:04<17:55, 358.51s/it]Best trial: 0. Best value: 0:  93%|█████████▎| 28/30 [2:48:04<11:56, 358.22s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.28, Content: 0.44, Trend: 0.28
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  93%|█████████▎| 28/30 [2:54:01<11:56, 358.22s/it]Best trial: 0. Best value: 0:  93%|█████████▎| 28/30 [2:54:01<11:56, 358.22s/it]Best trial: 0. Best value: 0:  97%|█████████▋| 29/30 [2:54:01<05:57, 357.96s/it]INFO:recommendation_engine:Génération de 10 recommandations pour user 3
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Génération de 10 recommandations pour user 5
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Génération de 10 recommandations pour user 6
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Génération de 10 recommandations pour user 7
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Génération de 10 recommandations pour user 8
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Génération de 10 recommandations pour user 10
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Fenêtre de hype: 46020 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 11
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Fenêtre de hype: 45966 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 12
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Fenêtre de hype: 46006 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46016 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 16
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Fenêtre de hype: 45989 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Génération de 10 recommandations pour user 17
+INFO:recommendation_engine:Poids normalisés - Collab: 0.34, Content: 0.43, Trend: 0.23
+INFO:recommendation_engine:Fenêtre de hype: 45990 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45993 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 46008 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45985 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+INFO:recommendation_engine:Fenêtre de hype: 45988 articles exclus (> 60 jours)
+INFO:recommendation_engine:✓ 10 recommandations générées
+                                                                                Best trial: 0. Best value: 0:  97%|█████████▋| 29/30 [3:00:01<05:57, 357.96s/it]Best trial: 0. Best value: 0:  97%|█████████▋| 29/30 [3:00:01<05:57, 357.96s/it]Best trial: 0. Best value: 0: 100%|██████████| 30/30 [3:00:01<00:00, 358.61s/it]Best trial: 0. Best value: 0: 100%|██████████| 30/30 [3:00:01<00:00, 360.05s/it]
+[I 2025-12-27 18:17:05,124] Trial 16 finished with value: 0.0 and parameters: {'w_time': 0.5328304999135796, 'w_clicks': 0.37964189227643524, 'w_session': 0.213904957602741, 'w_device': 0.12080614437817133, 'w_env': 0.0477532671592066, 'w_referrer': 0.04936263006529221, 'w_os': 0.011408489566937977, 'w_country': 0.06600652574403343, 'w_region': 0.03697586413547206, 'content': 0.3007961343324901, 'collab': 0.22245951277667325, 'temporal': 0.16215093260743607}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 18:23:03,549] Trial 17 finished with value: 0.0 and parameters: {'w_time': 0.6204446243438928, 'w_clicks': 0.2218894509416164, 'w_session': 0.249162591485511, 'w_device': 0.15224195105910138, 'w_env': 0.06784889090373206, 'w_referrer': 0.021806203913145486, 'w_os': 0.0812653650002826, 'w_country': 0.0994146294714102, 'w_region': 0.057921176898204293, 'content': 0.45765875348944307, 'collab': 0.28833679395116746, 'temporal': 0.19028853496482848}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 18:28:59,723] Trial 18 finished with value: 0.0 and parameters: {'w_time': 0.3818113755016998, 'w_clicks': 0.16348628848826596, 'w_session': 0.11849399575315081, 'w_device': 0.07008453176169123, 'w_env': 0.03366924392223511, 'w_referrer': 0.034440148911888215, 'w_os': 0.02625501319869425, 'w_country': 0.046831022855591244, 'w_region': 0.07173091725433019, 'content': 0.4004999651176168, 'collab': 0.2584159529867933, 'temporal': 0.3257254013166066}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 18:34:55,543] Trial 19 finished with value: 0.0 and parameters: {'w_time': 0.5483590153820646, 'w_clicks': 0.30545759974671294, 'w_session': 0.1611464740127881, 'w_device': 0.10314860622896505, 'w_env': 0.02109420898495388, 'w_referrer': 0.0670762934955716, 'w_os': 0.07483371820784124, 'w_country': 0.028532406771756787, 'w_region': 0.03899223438786584, 'content': 0.3220389976572654, 'collab': 0.22137947336940894, 'temporal': 0.23804563780431603}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 18:40:53,149] Trial 20 finished with value: 0.0 and parameters: {'w_time': 0.6061373356287534, 'w_clicks': 0.4235739056252928, 'w_session': 0.07361478384981873, 'w_device': 0.1762925355352808, 'w_env': 0.05150590801925611, 'w_referrer': 0.05709034884950971, 'w_os': 0.03328794205192244, 'w_country': 0.07534094350547586, 'w_region': 0.07023395681673404, 'content': 0.4775298019341349, 'collab': 0.3175605708044235, 'temporal': 0.27845352466521744}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 18:46:52,484] Trial 21 finished with value: 0.0 and parameters: {'w_time': 0.4550684608831729, 'w_clicks': 0.38770055505908174, 'w_session': 0.09699975508452371, 'w_device': 0.13731444968575096, 'w_env': 0.06562925076384304, 'w_referrer': 0.012322344280763741, 'w_os': 0.061249366907136775, 'w_country': 0.028330156669696877, 'w_region': 0.025417713062132193, 'content': 0.49724702450599156, 'collab': 0.38915171626141337, 'temporal': 0.31481072409449845}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 18:52:49,905] Trial 22 finished with value: 0.0 and parameters: {'w_time': 0.4757918754751836, 'w_clicks': 0.4534549540299062, 'w_session': 0.07557736714958664, 'w_device': 0.14982921832904372, 'w_env': 0.06228438970176123, 'w_referrer': 0.016865405783990723, 'w_os': 0.04744610481574555, 'w_country': 0.012279573575101226, 'w_region': 0.050540329905945716, 'content': 0.47776318083558705, 'collab': 0.336693601389005, 'temporal': 0.321499313822949}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 18:58:47,263] Trial 23 finished with value: 0.0 and parameters: {'w_time': 0.4726313757462814, 'w_clicks': 0.41355079615629353, 'w_session': 0.09039848462370823, 'w_device': 0.1273978007679039, 'w_env': 0.0411313216071159, 'w_referrer': 0.010468778890047936, 'w_os': 0.07410081368507052, 'w_country': 0.024244009340294193, 'w_region': 0.05890710554549383, 'content': 0.47644288863435197, 'collab': 0.29142182680825574, 'temporal': 0.3447094471961426}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 19:04:44,927] Trial 24 finished with value: 0.0 and parameters: {'w_time': 0.5252635193350976, 'w_clicks': 0.3714763430002143, 'w_session': 0.12648659060430584, 'w_device': 0.16052746699345036, 'w_env': 0.07674847843604583, 'w_referrer': 0.021258894208232862, 'w_os': 0.057630989013873736, 'w_country': 0.0349720675733893, 'w_region': 0.01016290898723318, 'content': 0.43932893026074715, 'collab': 0.36796769123632267, 'temporal': 0.30310182556037957}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 19:10:44,214] Trial 25 finished with value: 0.0 and parameters: {'w_time': 0.3821111811025465, 'w_clicks': 0.33009820214484464, 'w_session': 0.10977467077865417, 'w_device': 0.13039381682108442, 'w_env': 0.0560866882646963, 'w_referrer': 0.032382405213325555, 'w_os': 0.06898411039525884, 'w_country': 0.01878051164496341, 'w_region': 0.04381871230287992, 'content': 0.4146807533490095, 'collab': 0.2729435311174315, 'temporal': 0.3252066526825829}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 19:16:43,672] Trial 26 finished with value: 0.0 and parameters: {'w_time': 0.4903097498141208, 'w_clicks': 0.4352053854165523, 'w_session': 0.07062674326146348, 'w_device': 0.14247761588269217, 'w_env': 0.07464085238577814, 'w_referrer': 0.04311167739339113, 'w_os': 0.09770553182459368, 'w_country': 0.04948244453584358, 'w_region': 0.027343496256278306, 'content': 0.367738569852915, 'collab': 0.20067598801325948, 'temporal': 0.19382086752944028}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 19:22:41,199] Trial 27 finished with value: 0.0 and parameters: {'w_time': 0.4495631304384998, 'w_clicks': 0.3987843412547145, 'w_session': 0.17017968473003636, 'w_device': 0.11554429176710718, 'w_env': 0.026638383661282333, 'w_referrer': 0.01825607010506375, 'w_os': 0.054398323770659576, 'w_country': 0.031346724757434614, 'w_region': 0.0667177895204054, 'content': 0.44974384232603654, 'collab': 0.2487029108957544, 'temporal': 0.2709730526433429}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 19:28:38,547] Trial 28 finished with value: 0.0 and parameters: {'w_time': 0.4235089078684302, 'w_clicks': 0.3524235713846263, 'w_session': 0.21116452548124912, 'w_device': 0.09169754553169208, 'w_env': 0.01871407984340496, 'w_referrer': 0.02442328257241808, 'w_os': 0.08884482500422589, 'w_country': 0.0407865713442284, 'w_region': 0.07776560796136012, 'content': 0.46887990807773205, 'collab': 0.3026209796238178, 'temporal': 0.2999724398424729}. Best is trial 0 with value: 0.0.
+[I 2025-12-27 19:34:38,688] Trial 29 finished with value: 0.0 and parameters: {'w_time': 0.42147730491598734, 'w_clicks': 0.20747628745411462, 'w_session': 0.22980228331826763, 'w_device': 0.17761962177994522, 'w_env': 0.03868500513284772, 'w_referrer': 0.038461841432883455, 'w_os': 0.020194109681120186, 'w_country': 0.061126122884650164, 'w_region': 0.052269292862035174, 'content': 0.43123805189250164, 'collab': 0.33597157020533164, 'temporal': 0.23457382946503164}. Best is trial 0 with value: 0.0.
+
+================================================================================
+RÉSULTATS
+================================================================================
+
+🏆 Meilleur score: 0.000000
+
+Niveau 1 (Signaux):
+  Time        : 0.311 (31.1%)
+  Clicks      : 0.307 (30.7%)
+  Session     : 0.135 (13.5%)
+  Device      : 0.102 (10.2%)
+  Env         : 0.017 (1.7%)
+  Referrer    : 0.013 (1.3%)
+  Os          : 0.010 (1.0%)
+  Country     : 0.061 (6.1%)
+  Region      : 0.044 (4.4%)
+
+Niveau 2 (Stratégies):
+  Collab      : 0.206 (20.6%)
+  Content     : 0.446 (44.6%)
+  Temporal    : 0.348 (34.8%)
+
+📊 Statistiques d'efficacité:
+  Phase 1: 30 trials (100.0%)
+
+  Total users évalués: 300
+  Économie vs full: 80.0%
+
+📈 Amélioration vs baseline (0.2124): -100.0%
+
+✓ Résultats: tuning_12_parallel_progressive_v2_results.json
+
+================================================================================
+TOP 5 TRIALS
+================================================================================
+
+================================================================================
+✅ TERMINÉ
+================================================================================

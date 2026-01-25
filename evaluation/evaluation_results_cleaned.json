@@ -1,0 +1,27 @@
+{
+  "num_users": 322897,
+  "num_interactions": 1941746,
+  "baseline_scenario": {
+    "mean_ratio_pct": 9.128822515237092,
+    "median_ratio_pct": 0.05009812396555574,
+    "mean_time_minutes": 12.568534610107866,
+    "median_time_minutes": 5.65,
+    "mean_articles": 5.953734472602719,
+    "median_articles": 3.0
+  },
+  "with_recommendation_scenario": {
+    "mean_ratio_pct": 16.70574520288388,
+    "mean_time_minutes": 23.000418336497397,
+    "improvement_pct": 83.0
+  },
+  "revenue_impact": {
+    "cpm": 6.0,
+    "pub_interval_minutes": 3.55,
+    "baseline_pubs_per_user": 3.5404322845374274,
+    "baseline_revenue_total": 6859.16978028169,
+    "with_reco_pubs_per_user": 6.4789910807034925,
+    "with_reco_revenue_total": 12552.280697915494,
+    "gain_revenue": 5693.110917633804,
+    "gain_revenue_pct": 83.0
+  }
+}

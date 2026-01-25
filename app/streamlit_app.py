@@ -1,6 +1,7 @@
 """
 Application Streamlit pour le système de recommandation My Content
 Version Cloud - Sans graphe de réseau
+Updated: 2026-01-25 - Azure API fix for temporal filter
 """
 
 import streamlit as st

@@ -321,7 +321,8 @@ if 'last_recommendations' in st.session_state:
 st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: #666;">
-    <p>My Content - Système de recommandation MVP v1.0</p>
+    <p>My Content - Système de recommandation MVP v1.1</p>
     <p>Powered by Azure Functions & Streamlit</p>
+    <p><small>Build: 2026-01-25-v3</small></p>
 </div>
 """, unsafe_allow_html=True)

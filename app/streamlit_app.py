@@ -239,8 +239,8 @@ def get_recommendations_local(user_id, n_recommendations, weight_collab, weight_
         st.code(traceback.format_exc())
         return None
 
-# Générer les recommandations
-if st.session_state.get('generate', False) or 'last_recommendations' not in st.session_state:
+# Générer les recommandations (seulement quand l'utilisateur clique)
+if st.session_state.get('generate', False):
     with st.spinner("🔄 Génération des recommandations en cours..."):
         if USE_LOCAL:
             result = get_recommendations_local(user_id, n_recommendations, weight_collab, weight_content, weight_trend, use_diversity)
@@ -251,8 +251,11 @@ if st.session_state.get('generate', False) or 'last_recommendations' not in st.s
             st.session_state.last_recommendations = result
             st.session_state.generate = False
 
-# Afficher les résultats
-if 'last_recommendations' in st.session_state:
+# Afficher les résultats ou message d'accueil
+if 'last_recommendations' not in st.session_state:
+    st.info("👆 Cliquez sur **'Générer des recommandations'** pour obtenir des suggestions d'articles personnalisées.")
+
+elif 'last_recommendations' in st.session_state:
     result = st.session_state.last_recommendations
 
     if 'recommendations' in result and result['recommendations']:

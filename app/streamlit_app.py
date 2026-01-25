@@ -22,7 +22,7 @@ st.set_page_config(
 )
 
 # Configuration
-USE_LOCAL = False  # False pour Streamlit Cloud (utilise l'API Azure)
+USE_LOCAL = False  # False pour Streamlit Cloud (utilise API Azure)
 AZURE_API_URL = "https://func-mycontent-reco-1269.azurewebsites.net/api/recommend"
 
 # PARAMÈTRES OPTIMAUX (Optuna TPE - 23 Jan 2026)
@@ -89,27 +89,17 @@ def get_category_name(cat_id):
 @st.cache_data
 def load_user_profiles():
     """Charge les profils utilisateurs"""
-    import os
-    # Essayer plusieurs chemins (Cloud et Local)
-    paths = [
-        os.path.join(os.path.dirname(__file__), 'data', 'user_profiles.json'),  # Cloud: app/data/
-        'data/user_profiles.json',  # Cloud alternative
-        '../models/user_profiles.json',  # Local
-        '../models_lite/user_profiles_cleaned_v2.json',  # Local lite
-    ]
-    for path in paths:
-        try:
-            with open(path, 'r') as f:
-                return json.load(f)
-        except:
-            continue
-    return {}
+    try:
+        with open('data/user_profiles.json', 'r') as f:
+            return json.load(f)
+    except:
+        return {}
 
 @st.cache_data
 def load_articles_metadata():
     """Charge les métadonnées des articles"""
     try:
-        return pd.read_csv('../models/articles_metadata.csv')
+        return pd.read_csv('data/articles_metadata.csv')
     except:
         return pd.DataFrame()
 
@@ -118,10 +108,10 @@ def load_interactions_data():
     """Charge les données d'interactions avec temps de lecture"""
     try:
         # Essayer d'abord la version v3 (la plus récente)
-        return pd.read_csv('../models/interactions_cleaned_v3.csv')
+        return pd.read_csv('data/interactions_cleaned_v3.csv')
     except:
         try:
-            return pd.read_csv('../models/interactions_cleaned.csv')
+            return pd.read_csv('data/interactions_cleaned.csv')
         except:
             return pd.DataFrame()
 
@@ -222,14 +212,13 @@ st.sidebar.markdown("---")
 st.sidebar.header("👤 Configuration")
 
 # Sélection utilisateur
-# Utilisateurs valides pour la démo: 58, 389, 408, 443
 user_id = st.sidebar.number_input(
     "ID de l'utilisateur",
-    min_value=1,
+    min_value=0,
     max_value=1000000,
-    value=58,
+    value=0,
     step=1,
-    help="ID de l'utilisateur pour lequel générer des recommandations. Exemples: 58, 389, 408, 443"
+    help="ID de l'utilisateur pour lequel générer des recommandations"
 )
 
 # Nombre de recommandations

@@ -178,12 +178,18 @@ if profile:
 else:
     st.info(f"ℹ️ Nouvel utilisateur #{user_id} (pas d'historique)")
 
-# Détecter le changement d'utilisateur
+# Détecter le changement d'utilisateur OU si le nombre de recommandations en cache est différent de 5
 if 'last_user_id' not in st.session_state or st.session_state.last_user_id != user_id:
     st.session_state.last_user_id = user_id
     st.session_state.generate = True
     if 'last_recommendations' in st.session_state:
         del st.session_state.last_recommendations
+
+# Forcer nouvelle requête si le cache a moins de 5 recommandations
+if 'last_recommendations' in st.session_state:
+    if st.session_state.last_recommendations.get('n_recommendations', 0) != 5:
+        del st.session_state.last_recommendations
+        st.session_state.generate = True
 
 # Bouton de génération
 st.markdown("---")

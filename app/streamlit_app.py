@@ -96,7 +96,7 @@ st.markdown('<p class="main-header">📰 My Content - Système de Recommandation
 st.markdown("---")
 
 # Configuration - Paramètres optimaux trouvés lors de l'entraînement
-USE_LOCAL = True
+USE_LOCAL = False  # False pour Streamlit Cloud (utilise l'API Azure)
 AZURE_API_URL = "https://func-mycontent-reco-1269.azurewebsites.net/api/recommend"
 
 # PARAMÈTRES OPTIMAUX (Optuna TPE - 23 Jan 2026)

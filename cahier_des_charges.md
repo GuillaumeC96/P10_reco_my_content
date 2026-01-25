@@ -328,7 +328,7 @@ Pondération des interactions basée sur :
    - `data_preprocessing.py` : nettoyage et préparation données
    - `embeddings_reduction.py` : PCA sur embeddings (CPU uniquement)
    - `model_training.py` : calcul matrices de similarité
-   - `upload_to_s3.py` : upload des modèles vers Azure Blob Storage
+   - `upload_to_azure.py` : upload des modèles vers Azure Blob Storage
 
 ### 8.2 Documentation
 1. **README.md** : instructions de déploiement et utilisation
@@ -354,7 +354,7 @@ reco-my-content/
 │   ├── data_preprocessing.py
 │   ├── embeddings_reduction.py
 │   ├── model_training.py
-│   └── upload_to_s3.py
+│   └── upload_to_azure.py
 ├── models/
 │   └── (modèles et embeddings réduits - local avant upload Azure Blob Storage)
 ├── docs/

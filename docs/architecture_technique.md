@@ -33,9 +33,9 @@ Cette documentation décrit l'architecture technique du MVP du système de recom
                 │ HTTPS (API Call)
                 │
 ┌───────────────▼─────────────────────────────────────────────────┐
-│                    AWS LAMBDA FUNCTION                          │
+│                    AZURE FUNCTION                               │
 │  ┌──────────────────────────────────────────────────────┐      │
-│  │ lambda_function.py (Handler)                         │      │
+│  │ __init__.py (HTTP Trigger Handler)                   │      │
 │  │ - Parse HTTP request                                  │      │
 │  │ - Validate parameters                                 │      │
 │  │ - Call recommendation engine                          │      │
@@ -54,7 +54,7 @@ Cette documentation décrit l'architecture technique du MVP du système de recom
 │                    │ Read models/data                            │
 │                    ▼                                             │
 │  ┌──────────────────────────────────────────────────────┐      │
-│  │ /tmp/models/ (Cache local Lambda)                    │      │
+│  │ /tmp/models/ (Cache local Azure Functions)                    │      │
 │  │ - user_item_matrix.npz                                │      │
 │  │ - embeddings_filtered.pkl                             │      │
 │  │ - article_popularity.pkl                              │      │
@@ -63,11 +63,11 @@ Cette documentation décrit l'architecture technique du MVP du système de recom
 │  └─────────────────┬────────────────────────────────────┘      │
 └────────────────────┼─────────────────────────────────────────────┘
                      │
-                     │ Download on cold start (S3 → /tmp/)
+                     │ Download on cold start (Azure Blob Storage → /tmp/)
                      │
 ┌────────────────────▼─────────────────────────────────────────────┐
-│                        AWS S3 BUCKET                             │
-│  my-content-reco-bucket/                                         │
+│                    AZURE BLOB STORAGE                            │
+│  Container: mycontent-models/                                    │
 │  └── models/                                                     │
 │      ├── user_item_matrix.npz                                   │
 │      ├── embeddings_filtered.pkl                                │
@@ -89,7 +89,7 @@ Cette documentation décrit l'architecture technique du MVP du système de recom
 #### Responsabilités
 - Interface utilisateur web interactive
 - Saisie des paramètres (user_id, n_recommendations, alpha, diversité)
-- Communication avec Lambda Function via HTTP ou moteur local
+- Communication avec Azure Function via HTTP ou moteur local
 - Affichage formaté des recommandations
 - Export CSV des résultats
 
@@ -99,39 +99,42 @@ Cette documentation décrit l'architecture technique du MVP du système de recom
 
 #### Configuration
 ```python
-LAMBDA_URL = "https://xxxx.lambda-url.region.on.aws/"
+AZURE_FUNCTION_URL = "https://func-mycontent-reco-1269.azurewebsites.net/api/recommend"
 USE_LOCAL = True/False  # Mode local ou distant
 ```
 
 ---
 
-### 2. AWS Lambda Function
+### 2. Azure Function
 
-**Runtime:** Python 3.9
-**Memory:** 1024 MB
+**Runtime:** Python 3.10
+**Memory:** 512-1024 MB
 **Timeout:** 30 seconds
 **Architecture:** x86_64
-**Handler:** lambda_function.lambda_handler
+**Trigger:** HTTP Trigger
 
 #### Responsabilités
-- Réception des requêtes HTTP (Function URL)
+- Réception des requêtes HTTP (HTTP Trigger)
 - Validation des paramètres
 - Initialisation du moteur de recommandation (réutilisé entre invocations)
-- Téléchargement des modèles depuis S3 (uniquement au cold start)
+- Téléchargement des modèles depuis Azure Blob Storage (uniquement au cold start)
 - Génération des recommandations
 - Retour de réponse JSON formatée
 
 #### Fichiers
-- `lambda/lambda_function.py`: Handler principal
-- `lambda/recommendation_engine.py`: Moteur de recommandation
-- `lambda/config.py`: Configuration
-- `lambda/utils.py`: Fonctions utilitaires
-- `lambda/requirements.txt`: Dépendances
+- `azure_function/__init__.py`: Handler principal (HTTP Trigger)
+- `azure_function/recommendation_engine.py`: Moteur de recommandation
+- `azure_function/config.py`: Configuration
+- `azure_function/utils.py`: Fonctions utilitaires
+- `azure_function/requirements.txt`: Dépendances
+- `azure_function/function.json`: Configuration du trigger
+- `azure_function/host.json`: Configuration hôte
 
 #### Variables d'environnement
 ```
-S3_BUCKET=my-content-reco-bucket
-S3_MODELS_PREFIX=models/
+AZURE_STORAGE_CONNECTION_STRING=<connection_string>
+BLOB_CONTAINER_NAME=mycontent-models
+MODELS_PREFIX=models/
 MODELS_PATH=/tmp/models
 LOG_LEVEL=INFO
 ```
@@ -141,14 +144,15 @@ LOG_LEVEL=INFO
 - scipy 1.10.1
 - scikit-learn 1.3.0
 - pandas 2.0.3
-- boto3 1.28.0
+- azure-functions 1.18.0
+- azure-storage-blob 12.19.0
 
 ---
 
 ### 3. Moteur de Recommandation
 
 **Classe:** `RecommendationEngine`
-**Localisation:** `lambda/recommendation_engine.py`
+**Localisation:** `azure_function/recommendation_engine.py`
 
 #### Algorithmes implémentés
 
@@ -250,15 +254,16 @@ def _diversity_filtering(articles, n_final):
 
 ---
 
-### 4. AWS S3 Storage
+### 4. Azure Blob Storage
 
-**Bucket:** my-content-reco-bucket
-**Region:** us-east-1 (configurable)
-**Storage Class:** Standard
+**Container:** mycontent-models
+**Region:** France Central
+**Tier:** Hot
+**Redundancy:** LRS (Locally Redundant Storage)
 
 #### Structure
 ```
-s3://my-content-reco-bucket/
+mycontent-models/
 └── models/
     ├── user_item_matrix.npz          (~50-100 MB)
     ├── embeddings_filtered.pkl       (~100-200 MB)
@@ -268,27 +273,19 @@ s3://my-content-reco-bucket/
     └── articles_metadata.csv         (~15 MB)
 ```
 
-**Taille totale:** ~200-350 MB
+**Taille totale:** ~200-350 MB (modèles complets) ou ~86 MB (modèles lite)
 
-#### Permissions IAM
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:ListBucket"
-      ],
-      "Resource": [
-        "arn:aws:s3:::my-content-reco-bucket/*",
-        "arn:aws:s3:::my-content-reco-bucket"
-      ]
-    }
-  ]
-}
+#### Permissions Azure RBAC
+La Azure Function utilise **Managed Identity** pour accéder au Blob Storage :
 ```
+Role: Storage Blob Data Reader
+Scope: Container mycontent-models
+Principal: func-mycontent-reco-1269 (Managed Identity)
+```
+
+Permissions requises :
+- `Microsoft.Storage/storageAccounts/blobServices/containers/read`
+- `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`
 
 ---
 
@@ -313,14 +310,14 @@ s3://my-content-reco-bucket/
    - Filtrage des embeddings
    - Sauvegarde dans `models/`
 
-3. **upload_to_s3.py**
-   - Upload des modèles vers S3
+3. **upload_to_azure.py**
+   - Upload des modèles vers Azure Blob Storage
    - Validation du transfert
 
 #### Temps d'exécution estimé
 - Exploration: ~1 minute
 - Preprocessing: ~10-15 minutes
-- Upload S3: ~2-5 minutes (selon bande passante)
+- Upload Azure Blob Storage: ~2-5 minutes (selon bande passante)
 
 ---
 
@@ -331,13 +328,13 @@ s3://my-content-reco-bucket/
 ```
 1. User saisit user_id=123 dans Streamlit
    ↓
-2. Streamlit envoie GET https://lambda-url?user_id=123&n_recommendations=5
+2. Streamlit envoie GET https://azurewebsites.net?user_id=123&n_recommendations=5
    ↓
-3. Lambda parse la requête
+3. Azure Functions parse la requête
    ↓
-4. Lambda initialise le moteur (si cold start)
+4. Azure Functions initialise le moteur (si cold start)
    ↓
-5. Moteur télécharge modèles depuis S3 (si nécessaire)
+5. Moteur télécharge modèles depuis Azure Blob Storage (si nécessaire)
    ↓
 6. Moteur calcule:
    - Collaborative filtering scores
@@ -345,7 +342,7 @@ s3://my-content-reco-bucket/
    - Hybrid combination
    - Diversity filtering
    ↓
-7. Lambda retourne JSON avec 5 recommandations
+7. Azure Functions retourne JSON avec 5 recommandations
    ↓
 8. Streamlit affiche les résultats formatés
 ```
@@ -354,14 +351,14 @@ s3://my-content-reco-bucket/
 
 **Cold Start (première invocation)**
 ```
-Request → Lambda init (5-10s) → Download S3 (3-5s) → Load models (2-3s)
+Request → Azure Functions init (5-10s) → Download Azure Blob Storage (3-5s) → Load models (2-3s)
        → Compute (0.5-1s) → Response
 Total: ~10-20s
 ```
 
 **Warm Start (invocations suivantes)**
 ```
-Request → Lambda reuse container → Load from memory → Compute (0.5-1s)
+Request → Azure Functions reuse container → Load from memory → Compute (0.5-1s)
        → Response
 Total: ~1-2s
 ```
@@ -376,7 +373,7 @@ Total: ~1-2s
    - Économie mémoire: ~99% d'espace économisé
    - Opérations optimisées pour matrices creuses
 
-2. **Réutilisation container Lambda**
+2. **Réutilisation container Azure Functions**
    - Variables globales pour le moteur
    - Cache en mémoire entre invocations
    - Réduction du temps de réponse après warm-up
@@ -397,30 +394,30 @@ Total: ~1-2s
 - Warm start: 1-2 secondes
 - Local: 0.5-1 seconde
 
-**Mémoire Lambda:**
+**Mémoire Azure Functions:**
 - Minimum: 512 MB
 - Recommandé: 1024 MB
 - Maximum testé: 1536 MB
 
-**Coûts AWS (estimés, Free Tier):**
-- Lambda invocations: 1M gratuits/mois
-- Lambda compute: 400,000 GB-secondes gratuits/mois
-- S3 storage: 5 GB gratuits
-- S3 requests: 20,000 GET gratuits/mois
+**Coûts Azure (estimés, Free Tier):**
+- Azure Functions invocations: 1M gratuits/mois
+- Azure Functions compute: 400,000 GB-secondes gratuits/mois
+- Azure Blob Storage storage: 5 GB gratuits
+- Azure Blob Storage requests: 20,000 GET gratuits/mois
 
 ---
 
 ## Sécurité
 
-### Lambda Function
+### Azure Function
 
-1. **Function URL**
+1. **HTTP Trigger URL**
    - Auth Type: NONE (public pour MVP)
    - CORS: Activé (Access-Control-Allow-Origin: *)
 
-2. **IAM Role**
+2. **Azure RBAC Role**
    - Principe du moindre privilège
-   - Read-only access à S3
+   - Read-only access à Azure Blob Storage
    - CloudWatch Logs pour monitoring
 
 3. **Validation des entrées**
@@ -429,25 +426,26 @@ Total: ~1-2s
    - alpha: 0.0-1.0
    - Protection contre injection
 
-### S3 Bucket
+### Azure Blob Storage container
 
 1. **Accès**
    - Privé par défaut
-   - Accès Lambda via IAM role uniquement
+   - Accès Azure Functions via Managed Identity uniquement
 
 2. **Encryption**
-   - Server-side encryption (SSE-S3)
+   - Server-side encryption (SSE-Azure Blob Storage)
    - Pas de données sensibles utilisateurs
 
 ---
 
 ## Monitoring et logging
 
-### AWS CloudWatch
+### Azure Application Insights
 
 **Logs:**
-- Log group: `/aws/lambda/MyContentRecommendation`
-- Retention: 7 jours (configurable)
+- Log Analytics Workspace: func-mycontent-reco-logs
+- Retention: 30 jours
+- Integration: Automatique via Azure Function
 
 **Logs générés:**
 ```python
@@ -458,11 +456,12 @@ INFO: ✓ 5 recommandations générées
 ```
 
 **Métriques automatiques:**
-- Invocations
-- Duration
-- Errors
-- Throttles
-- Concurrent executions
+- Invocations (executions)
+- Duration (response time)
+- Errors (failures)
+- Availability
+- Performance counters
+- Dependencies
 
 ### Dashboard recommandé
 
@@ -470,29 +469,30 @@ INFO: ✓ 5 recommandations générées
 - Latence moyenne (p50, p95, p99)
 - Taux d'erreur
 - Cold start ratio
-- Coût estimé
+- Coût estimé (Consumption Plan)
+- Memory usage
 
 ---
 
 ## Limitations techniques
 
-### Lambda
+### Azure Functions (Consumption Plan)
 
 1. **Package size**
-   - Max 250 MB (unzipped)
-   - Actuel: ~150 MB avec dépendances
+   - Recommandé: < 100 MB pour cold start rapide
+   - Actuel: ~86 MB (modèles lite) avec dépendances
 
 2. **Timeout**
-   - Max 15 minutes
+   - Max 5 minutes (Consumption Plan)
    - Configuré: 30 secondes
 
 3. **Memory**
-   - Max 10 GB
-   - Configuré: 1024 MB
+   - Max 1.5 GB (Consumption Plan)
+   - Allouée dynamiquement: 512-1024 MB
 
 4. **Cold start**
-   - Première invocation lente
-   - Mitigations: Provisioned Concurrency (non gratuit)
+   - Première invocation lente (~3s pour modèles lite)
+   - Mitigations: Premium Plan avec Always Ready instances (coût supplémentaire)
 
 ### Algorithmes
 
@@ -529,15 +529,15 @@ print('✓ Tests passed')
 ### Tests d'intégration
 
 ```bash
-# Tester la Lambda déployée
-curl "https://lambda-url/?user_id=0&n_recommendations=5"
+# Tester la Azure Functions déployée
+curl "https://azurewebsites.net/?user_id=0&n_recommendations=5"
 ```
 
 ### Tests de performance
 
 ```bash
 # Load testing avec Apache Bench
-ab -n 100 -c 10 "https://lambda-url/?user_id=0&n_recommendations=5"
+ab -n 100 -c 10 "https://azurewebsites.net/?user_id=0&n_recommendations=5"
 ```
 
 ---
@@ -546,15 +546,15 @@ ab -n 100 -c 10 "https://lambda-url/?user_id=0&n_recommendations=5"
 
 ### Checklist
 
-- [ ] Preprocessing terminé
-- [ ] Modèles uploadés sur S3
-- [ ] Bucket S3 créé et accessible
-- [ ] Lambda Function déployée
-- [ ] IAM role configuré
-- [ ] Function URL activée
-- [ ] Variables d'environnement configurées
-- [ ] Tests de validation passés
-- [ ] Application Streamlit testée
+- [x] Preprocessing terminé
+- [x] Modèles uploadés sur Azure Blob Storage
+- [x] Container Azure Blob Storage créé et accessible
+- [x] Azure Function déployée (func-mycontent-reco-1269)
+- [x] Managed Identity configurée
+- [x] HTTP Trigger activé
+- [x] Variables d'environnement configurées
+- [x] Tests de validation passés
+- [x] Application Streamlit Enhanced testée
 
 ### Commandes
 
@@ -562,17 +562,23 @@ ab -n 100 -c 10 "https://lambda-url/?user_id=0&n_recommendations=5"
 # 1. Preprocessing
 python3 data_preparation/data_preprocessing.py
 
-# 2. Upload S3
-python3 data_preparation/upload_to_s3.py --bucket my-content-reco-bucket
+# 2. Upload Azure Blob Storage
+az storage blob upload-batch \
+  --account-name mycontentstorage \
+  --destination mycontent-models \
+  --source ./models/
 
-# 3. Déployer Lambda
-cd lambda && ./deploy.sh
+# 3. Déployer Azure Function
+cd azure_function
+func azure functionapp publish func-mycontent-reco-1269
 
 # 4. Tester
-curl "https://lambda-url/?user_id=0&n_recommendations=5"
+curl -X POST https://func-mycontent-reco-1269.azurewebsites.net/api/recommend \
+  -H "Content-Type: application/json" \
+  -d '{"user_id": 58, "n": 5}'
 
-# 5. Lancer Streamlit
-cd app && streamlit run streamlit_app.py
+# 5. Lancer Streamlit Enhanced
+cd app && streamlit run streamlit_app_enhanced.py
 ```
 
 ---
@@ -581,7 +587,7 @@ cd app && streamlit run streamlit_app.py
 
 ### Problèmes courants
 
-**1. Lambda timeout**
+**1. Azure Functions timeout**
 - Solution: Augmenter la mémoire (plus de mémoire = plus de CPU)
 - Solution: Optimiser les modèles (réduire embeddings)
 
@@ -590,12 +596,12 @@ cd app && streamlit run streamlit_app.py
 - Solution: Réduire la taille du package
 
 **3. Out of memory**
-- Solution: Augmenter la mémoire Lambda
+- Solution: Augmenter la mémoire Azure Functions
 - Solution: Réduire la dimension des embeddings (PCA)
 
-**4. S3 access denied**
-- Solution: Vérifier les permissions IAM
-- Solution: Vérifier le nom du bucket
+**4. Azure Blob Storage access denied**
+- Solution: Vérifier les permissions Azure RBAC
+- Solution: Vérifier le nom du container
 
 ---
 

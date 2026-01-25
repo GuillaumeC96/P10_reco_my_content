@@ -871,7 +871,7 @@ with tab5:
         """Utilise le moteur local"""
         try:
             import sys
-            sys.path.append('../lambda')
+            sys.path.append('../azure_function')
             from recommendation_engine import RecommendationEngine
 
             # Initialiser le moteur

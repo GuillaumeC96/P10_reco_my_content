@@ -9,13 +9,13 @@ Cette documentation présente l'architecture cible du système de recommandation
 ### Architecture MVP (actuelle)
 
 ```
-[Streamlit Local] → [Lambda Function] → [S3 Models (statiques)]
+[Streamlit Local] → [Azure Function] → [Azure Blob Storage Models (statiques)]
 ```
 
 **Limitations:**
 - Données statiques
 - Pas de mise à jour en temps réel
-- Cold start Lambda
+- Cold start Azure Functions
 - Pas de cache
 - Scalabilité limitée
 
@@ -37,7 +37,7 @@ Cette documentation présente l'architecture cible du système de recommandation
            │                         │                          │
            │                         ▼                          ▼
 ┌──────────┴──────────┐    ┌────────────────┐      ┌─────────────────┐
-│  S3 Static Website  │    │  Lambda/ECS    │      │  Lambda/Fargate │
+│  Azure Blob Storage Static Website  │    │  Azure Functions/ECS    │      │  Azure Functions/Fargate │
 │  (Frontend)         │    │  Auth Service  │      │  Reco Service   │
 └─────────────────────┘    └────────┬───────┘      └─────┬───────────┘
                                     │                     │
@@ -51,7 +51,7 @@ Cette documentation présente l'architecture cible du système de recommandation
                      │                                           │
                      ▼                                           ▼
           ┌──────────────────────┐                    ┌──────────────────────┐
-          │  RDS/DynamoDB        │←───────────────────│  Data Lake (S3)      │
+          │  RDS/DynamoDB        │←───────────────────│  Data Lake (Azure Blob Storage)      │
           │  (Metadata, Users)   │                    │  (Raw Interactions)  │
           └──────────────────────┘                    └──────────┬───────────┘
                                                                   │
@@ -70,7 +70,7 @@ Cette documentation présente l'architecture cible du système de recommandation
 
 #### Web Application
 - **Framework:** React/Next.js ou Vue.js
-- **Hébergement:** S3 + CloudFront
+- **Hébergement:** Azure Blob Storage + CloudFront
 - **Features:**
   - Interface utilisateur moderne
   - Personnalisation du profil
@@ -91,7 +91,7 @@ Cette documentation présente l'architecture cible du système de recommandation
 ### 2. API Layer
 
 #### API Gateway
-- **Service:** AWS API Gateway
+- **Service:** Azure API Gateway
 - **Type:** REST ou GraphQL
 - **Features:**
   - Rate limiting (throttling)
@@ -114,9 +114,9 @@ GET  /api/v1/articles/{id}
 
 ### 3. Authentication & Authorization
 
-#### AWS Cognito
+#### Azure Cognito
 - **User Pools:** Gestion des utilisateurs
-- **Identity Pools:** Accès temporaire aux ressources AWS
+- **Identity Pools:** Accès temporaire aux ressources Azure
 - **Features:**
   - Sign up/Sign in
   - OAuth 2.0 / OIDC
@@ -135,7 +135,7 @@ GET  /api/v1/articles/{id}
 #### A. Recommendation Service
 
 **Compute:**
-- **Lambda Functions:** Pour requêtes légères (< 1s)
+- **Azure Functions:** Pour requêtes légères (< 1s)
 - **ECS Fargate:** Pour modèles complexes (> 1s)
 - **Auto-scaling:** Basé sur charge
 
@@ -302,11 +302,11 @@ RealtimeEvents
 - Attributes: user_id, article_id, event_type
 ```
 
-#### C. Data Lake (S3)
+#### C. Data Lake (Azure Data Lake Storage Gen2)
 
 **Organisation:**
 ```
-s3://my-content-datalake/
+mycontent-datalake/
 ├── raw/
 │   ├── interactions/
 │   │   └── year=2025/month=12/day=09/hour=10/*.parquet
@@ -337,14 +337,14 @@ s3://my-content-datalake/
        │
        ▼
 ┌─────────────────┐
-│  Kinesis Stream │ (Data ingestion)
+│ Azure Event Hubs│ (Data ingestion)
 └──────┬──────────┘
        │
        ├─────────────────────────┬────────────────────┐
        ▼                         ▼                    ▼
 ┌──────────────┐      ┌──────────────────┐    ┌─────────────┐
-│   Lambda     │      │  Kinesis Firehose│    │  Lambda     │
-│  (Real-time  │      │  (S3 Archive)    │    │  (Triggers) │
+│ Azure Function│      │ Stream Analytics │    │Azure Function│
+│  (Real-time  │      │ (Archive to ADLS)│    │  (Triggers) │
 │   Update)    │      └──────────────────┘    └─────────────┘
 └──────┬───────┘
        │
@@ -361,9 +361,9 @@ s3://my-content-datalake/
 - **Consumers:**
   - Real-time recommendation updates
   - Analytics pipeline
-  - Archivage S3
+  - Archivage Azure Blob Storage
 
-#### Lambda Event Processors
+#### Azure Functions Event Processors
 ```python
 def process_interaction_event(event):
     """
@@ -391,12 +391,12 @@ def process_interaction_event(event):
 
 ### 8. Machine Learning Pipeline
 
-#### AWS SageMaker
+#### Azure SageMaker
 
 **Training Pipeline:**
 ```
 ┌──────────────┐
-│  Data Lake   │ (S3)
+│  Data Lake   │ (Azure Blob Storage)
 └──────┬───────┘
        │
        ▼
@@ -475,7 +475,7 @@ def get_variant(user_id, experiment_name):
 - Latence > 2s (p95)
 - Error rate > 1%
 - Cache hit ratio < 80%
-- Lambda throttling
+- Azure Functions throttling
 
 #### X-Ray
 - Distributed tracing
@@ -665,12 +665,12 @@ def expand_article_reach(article_id):
 #### Estimation des coûts mensuels (100k utilisateurs actifs)
 
 **Compute:**
-- Lambda: $50-100 (1M invocations, 1s avg)
+- Azure Functions: $50-100 (1M invocations, 1s avg)
 - ECS Fargate: $200-400 (modèles complexes)
 - EC2 (si nécessaire): $100-300
 
 **Storage:**
-- S3: $50-100 (5 TB data lake)
+- Azure Blob Storage: $50-100 (5 TB data lake)
 - RDS: $200-500 (db.r5.large)
 - DynamoDB: $100-200 (on-demand)
 
@@ -700,16 +700,16 @@ def expand_article_reach(article_id):
 #### Security Best Practices
 
 1. **Encryption**
-   - At rest: S3 (SSE-S3/SSE-KMS), RDS (AES-256)
+   - At rest: Azure Blob Storage (SSE-Azure Blob Storage/SSE-KMS), RDS (AES-256)
    - In transit: TLS 1.3, Certificate Manager
 
 2. **Access Control**
-   - IAM roles avec principe du moindre privilège
+   - Managed Identitys avec principe du moindre privilège
    - VPC pour isolation réseau
    - Security Groups restrictifs
 
 3. **Secrets Management**
-   - AWS Secrets Manager pour credentials
+   - Azure Secrets Manager pour credentials
    - Parameter Store pour configuration
    - Rotation automatique des secrets
 
@@ -750,7 +750,7 @@ def export_user_data(user_id):
 ### 14. Migration MVP → Production
 
 #### Phase 1: Préparation (Mois 1-2)
-- [ ] Setup infrastructure AWS (Terraform/CloudFormation)
+- [ ] Setup infrastructure Azure (Terraform/CloudFormation)
 - [ ] Migration des données vers RDS/DynamoDB
 - [ ] Configuration du streaming (Kinesis)
 - [ ] Setup du cache (ElastiCache)

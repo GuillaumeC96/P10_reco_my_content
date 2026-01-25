@@ -222,13 +222,14 @@ st.sidebar.markdown("---")
 st.sidebar.header("👤 Configuration")
 
 # Sélection utilisateur
+# Utilisateurs valides pour la démo: 58, 389, 408, 443
 user_id = st.sidebar.number_input(
     "ID de l'utilisateur",
-    min_value=0,
+    min_value=1,
     max_value=1000000,
-    value=0,
+    value=58,
     step=1,
-    help="ID de l'utilisateur pour lequel générer des recommandations"
+    help="ID de l'utilisateur pour lequel générer des recommandations. Exemples: 58, 389, 408, 443"
 )
 
 # Nombre de recommandations

@@ -289,12 +289,12 @@ Pondération des interactions basée sur :
 ### 7.2 Améliorations futures
 
 #### 7.2.1 Infrastructure
-- **Real-time recommendations** : streaming des interactions (AWS Kinesis)
-- **Model retraining** : pipeline automatisé (AWS SageMaker ou AWS Batch)
+- **Real-time recommendations** : streaming des interactions (Azure Event Hubs)
+- **Model retraining** : pipeline automatisé (Azure Azure ML ou Azure Batch)
 - **A/B Testing** : framework d'expérimentation
-- **Monitoring** : AWS CloudWatch pour performance et logs
-- **API Management** : AWS API Gateway pour production
-- **Cache** : AWS ElastiCache (Redis) pour réponses rapides
+- **Monitoring** : Azure Azure Monitor pour performance et logs
+- **API Management** : Azure Azure API Management pour production
+- **Cache** : Azure Azure Cache (Redis) pour réponses rapides
 
 #### 7.2.2 Machine Learning avancé
 - **Deep Learning** : Neural Collaborative Filtering (NCF)
@@ -313,35 +313,35 @@ Pondération des interactions basée sur :
 ## 8. Livrables
 
 ### 8.1 Code
-1. **AWS Lambda Function**
-   - `lambda_function.py` : handler principal (point d'entrée)
+1. **Azure Functions Function**
+   - `function_app.py` : handler principal (point d'entrée)
    - `recommendation_engine.py` : logique de recommandation
    - `utils.py` : fonctions utilitaires
    - `requirements.txt` : dépendances Python
-   - `config.py` : configuration (bucket S3, paramètres)
+   - `config.py` : configuration (container Azure Blob Storage, paramètres)
 
 2. **Application locale**
    - Interface Streamlit
-   - Script de test de la Lambda Function
+   - Script de test de la Azure Function
 
 3. **Scripts de préparation**
    - `data_preprocessing.py` : nettoyage et préparation données
    - `embeddings_reduction.py` : PCA sur embeddings (CPU uniquement)
    - `model_training.py` : calcul matrices de similarité
-   - `upload_to_s3.py` : upload des modèles vers S3
+   - `upload_to_azure.py` : upload des modèles vers Azure Blob Storage
 
 ### 8.2 Documentation
 1. **README.md** : instructions de déploiement et utilisation
 2. **architecture_technique.md** : détail architecture MVP
 3. **architecture_cible.md** : vision scalabilité et évolutions
 4. **user_guide.md** : guide utilisateur application
-5. **aws_setup.md** : guide de configuration AWS
+5. **azure_setup.md** : guide de configuration Azure
 
 ### 8.3 Repository GitHub
 ```
 reco-my-content/
-├── lambda/
-│   ├── lambda_function.py
+├── azure_function/
+│   ├── function_app.py
 │   ├── recommendation_engine.py
 │   ├── utils.py
 │   ├── config.py
@@ -354,13 +354,13 @@ reco-my-content/
 │   ├── data_preprocessing.py
 │   ├── embeddings_reduction.py
 │   ├── model_training.py
-│   └── upload_to_s3.py
+│   └── upload_to_azure.py
 ├── models/
-│   └── (modèles et embeddings réduits - local avant upload S3)
+│   └── (modèles et embeddings réduits - local avant upload Azure Blob Storage)
 ├── docs/
 │   ├── architecture_technique.md
 │   ├── architecture_cible.md
-│   └── aws_setup.md
+│   └── azure_setup.md
 ├── tests/
 │   └── test_recommendations.py
 └── README.md
@@ -382,16 +382,16 @@ reco-my-content/
 - Développement système hybride
 - Tests et validation
 
-### Phase 3 : Développement AWS Lambda
-- Configuration AWS account et ressources (Lambda, S3, IAM)
-- Développement de la Lambda Function
-- Upload des modèles vers S3
-- Configuration Lambda Function URL
+### Phase 3 : Développement Azure Functions
+- Configuration Azure account et ressources (Azure Functions, Azure Blob Storage, IAM)
+- Développement de la Azure Function
+- Upload des modèles vers Azure Blob Storage
+- Configuration Azure Function URL
 - Tests et déploiement
 
 ### Phase 4 : Application locale
 - Développement interface Streamlit
-- Intégration avec AWS Lambda Function URL
+- Intégration avec Azure Functions Function URL
 - Tests end-to-end
 
 ### Phase 5 : Documentation et livraison
@@ -406,9 +406,9 @@ reco-my-content/
 
 ### 10.1 Backend
 - **Python 3.9+** (CPU uniquement)
-- **AWS Lambda** (serverless compute)
-- **AWS S3** (stockage objets)
-- **boto3** : SDK AWS pour Python
+- **Azure Functions** (serverless compute)
+- **Azure Blob Storage** (stockage objets)
+- **azure-storage-blob** : SDK Azure pour Python
 
 ### 10.2 Data Science
 - **pandas** : manipulation de données
@@ -419,13 +419,13 @@ reco-my-content/
 
 ### 10.3 Frontend
 - **Streamlit** : interface web simple (recommandé)
-- **requests** : appels HTTP vers Lambda
+- **requests** : appels HTTP vers Azure Functions
 
 ### 10.4 DevOps
 - **Git/GitHub** : versioning
-- **AWS CLI** : déploiement et gestion
+- **Azure CLI** : déploiement et gestion
 - **pytest** : tests unitaires
-- **zip** : packaging Lambda deployment
+- **zip** : packaging Azure Functions deployment
 
 ---
 
@@ -434,12 +434,12 @@ reco-my-content/
 ### 11.1 Contraintes techniques
 - **Pas de GPU** : GPU déjà utilisé par un autre programme → CPU uniquement
 - **Taille des embeddings** : 364 MB → réduction nécessaire (PCA sur CPU)
-- **AWS Free Tier** : limitations de stockage S3 et invocations Lambda
-- **Lambda Limits** :
+- **Azure Free Tier** : limitations de stockage Azure Blob Storage et invocations Azure Functions
+- **Azure Functions Limits** :
   - Package size max 250 MB (unzipped)
   - Timeout max 15 minutes
   - Memory max 10 GB
-- **Cold start Lambda** : première invocation peut être lente (warmup)
+- **Cold start Azure Functions** : première invocation peut être lente (warmup)
 - **Cold start utilisateur** : performance limitée pour nouveaux utilisateurs
 
 ### 11.2 Contraintes fonctionnelles
@@ -457,7 +457,7 @@ reco-my-content/
 ## 12. Critères de succès
 
 ### 12.1 Critères techniques
-- ✅ AWS Lambda déployée et fonctionnelle
+- ✅ Azure Functions déployée et fonctionnelle
 - ✅ Temps de réponse < 5 secondes (après warmup)
 - ✅ Application locale opérationnelle
 - ✅ 5 recommandations générées pour tout utilisateur

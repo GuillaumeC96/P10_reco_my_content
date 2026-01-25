@@ -149,11 +149,8 @@ st.sidebar.markdown(f"""
 """)
 
 st.sidebar.markdown("---")
-use_diversity = st.sidebar.checkbox(
-    "🎨 Activer le filtre de diversité",
-    value=False,
-    help="Force la diversité des catégories"
-)
+# Diversité activée par défaut pour avoir 5 recommandations variées
+use_diversity = True
 
 # ===== PAGE PRINCIPALE =====
 st.title("🎯 Recommandations Personnalisées")

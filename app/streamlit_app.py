@@ -89,11 +89,21 @@ def get_category_name(cat_id):
 @st.cache_data
 def load_user_profiles():
     """Charge les profils utilisateurs"""
-    try:
-        with open('../models/user_profiles.json', 'r') as f:
-            return json.load(f)
-    except:
-        return {}
+    import os
+    # Essayer plusieurs chemins (Cloud et Local)
+    paths = [
+        os.path.join(os.path.dirname(__file__), 'data', 'user_profiles.json'),  # Cloud: app/data/
+        'data/user_profiles.json',  # Cloud alternative
+        '../models/user_profiles.json',  # Local
+        '../models_lite/user_profiles_cleaned_v2.json',  # Local lite
+    ]
+    for path in paths:
+        try:
+            with open(path, 'r') as f:
+                return json.load(f)
+        except:
+            continue
+    return {}
 
 @st.cache_data
 def load_articles_metadata():

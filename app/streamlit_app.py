@@ -129,14 +129,8 @@ user_id = st.sidebar.number_input(
     help="Exemples: 58, 389, 408, 443"
 )
 
-# Nombre de recommandations
-n_recommendations = st.sidebar.slider(
-    "Nombre de recommandations",
-    min_value=3,
-    max_value=20,
-    value=5,
-    step=1
-)
+# Nombre de recommandations fixé à 5
+n_recommendations = 5
 
 # Poids
 weight_content = OPTIMAL_WEIGHT_CONTENT

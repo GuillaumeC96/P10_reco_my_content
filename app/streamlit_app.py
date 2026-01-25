@@ -26,6 +26,7 @@ USE_LOCAL = False  # False pour Streamlit Cloud (utilise l'API Azure)
 AZURE_API_URL = "https://func-mycontent-reco-1269.azurewebsites.net/api/recommend"
 
 # PARAMÈTRES OPTIMAUX (Optuna TPE - 23 Jan 2026)
+# Fonction objectif: Maximiser temps de lecture (sans temps fantômes < 30s)
 OPTIMAL_WEIGHT_CONTENT = 0.39  # Content-Based : 39%
 OPTIMAL_WEIGHT_COLLAB = 0.36   # Collaborative : 36%
 OPTIMAL_WEIGHT_TREND = 0.25    # Temporal/Trending : 25%

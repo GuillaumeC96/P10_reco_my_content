@@ -72,8 +72,8 @@ NOTES_SESSION.md
 *.log
 logs/
 
-# Streamlit
-.streamlit/
+# Streamlit cache (but keep config)
+.streamlit/secrets.toml
 
 # Tests
 .pytest_cache/
